@@ -15,11 +15,11 @@ CREATE TABLE users (
 
 CREATE TABLE businesses (
   id INT NOT NULL AUTO_INCREMENT,
-  name VARCHAR(20),
-  address VARCHAR(30),
-  city VARCHAR(20),
+  name VARCHAR(100),
+  address VARCHAR(50),
+  city VARCHAR(50),
   state VARCHAR(3),
-  zip INT(5),
+  zip VARCHAR(15),
   opens TIME,
   closes TIME,
   guest_max INT (3),
