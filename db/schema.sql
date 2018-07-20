@@ -19,7 +19,7 @@ CREATE TABLE businesses (
   address VARCHAR(30),
   city VARCHAR(20),
   state VARCHAR(3),
-  zip INT(5)
+  zip INT(5),
   opens TIME,
   closes TIME,
   guest_max INT (3),
@@ -27,7 +27,7 @@ CREATE TABLE businesses (
 );
 
 CREATE TABLE appointments_log (
-  id INTO NOT NULL AUTO_INCREMENT,
+  id INT NOT NULL AUTO_INCREMENT,
   cutomer_id INT(10),
   business_id INT(10),
   start_time DATETIME,
