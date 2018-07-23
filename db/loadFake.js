@@ -1,10 +1,9 @@
 const faker = require('faker');
 const db = require('./index');
 
-const openingHours = ['06', '07', '08', '09', '10', '11', '12', '13', '14', '15', '16', '18'];
+const openingHours = ['06', '07', '08', '09', '10', '11', '12', '13', '14', '15', '16', '17', '18'];
 const closingHours = ['12', '13', '14', '15', '16', '18', '19', '20', '21', '22', '23', '24', '01', '02'];
 const minutes = ['00', '30'];
-
 
 const generateFakeBusinessData = () => {
   for (let j = 0; j < 100; j += 1) {
@@ -13,11 +12,12 @@ const generateFakeBusinessData = () => {
     const city = faker.address.city();
     const state = faker.address.stateAbbr();
     const zip = faker.address.zipCode();
+    const phone = JSON.stringify(faker.phone.phoneNumber());
     const openTimes = `${openingHours[Math.floor(Math.random() * Math.floor(openingHours.length - 1))]}:${minutes[Math.floor(Math.random() * Math.floor(2))]}:00`;
     const closeTimes = `${closingHours[Math.floor(Math.random() * Math.floor(openingHours.length - 1))]}:${minutes[Math.floor(Math.random() * Math.floor(2))]}:00`;
     const guestMax = Math.floor(Math.random() * Math.floor(50));
-    const sqlString = 'INSERT INTO businesses (name, address, city, state, zip, opens, closes, guest_max) VALUES(?, ?, ?, ?, ?, ?, ?, ?)';
-    const data = [name, address, city, state, zip, openTimes, closeTimes, guestMax];
+    const sqlString = 'INSERT INTO businesses (name, address, city, state, zip, phone, opens, closes, guest_max) VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?)';
+    const data = [name, address, city, state, zip, phone, openTimes, closeTimes, guestMax];
 
     db.query(sqlString, data, (err) => {
       if (err) {
