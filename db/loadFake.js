@@ -12,7 +12,7 @@ const generateFakeBusinessData = () => {
     const city = faker.address.city();
     const state = faker.address.stateAbbr();
     const zip = faker.address.zipCode();
-    const phone = JSON.stringify(faker.phone.phoneNumber());
+    const phone = faker.phone.phoneNumber();
     const openTimes = `${openingHours[Math.floor(Math.random() * Math.floor(openingHours.length - 1))]}:${minutes[Math.floor(Math.random() * Math.floor(2))]}:00`;
     const closeTimes = `${closingHours[Math.floor(Math.random() * Math.floor(openingHours.length - 1))]}:${minutes[Math.floor(Math.random() * Math.floor(2))]}:00`;
     const guestMax = Math.floor(Math.random() * Math.floor(50));
