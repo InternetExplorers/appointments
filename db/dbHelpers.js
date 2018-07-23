@@ -76,7 +76,7 @@ const getUserAppointments = (data, callback) => {
   });
 };
 
-// 
+//
 // getUserAppointments({ userId: 1 }, (err, success) => {
 //   if (err) {
 //     console.log('Did not go down smooth', err);
@@ -85,17 +85,6 @@ const getUserAppointments = (data, callback) => {
 //   }
 // });
 
-
-const getBusinessAppointments = (data, callback) => {
-  const queryString = '';
-  db.query(queryString, (err, success) => {
-    if (err) {
-      callback(err);
-    } else {
-      callback(null, success);
-    }
-  });
-};
 
 const deteleAppointment = (data, callback) => {
   const queryString = '';
@@ -120,10 +109,10 @@ const updateAppointment = (data, callback) => {
 };
 
 module.exports = {
+  addUser,
   addAppointment,
   getAvailability,
   getUserAppointments,
-  getBusinessAppointments,
   deteleAppointment,
   updateAppointment,
 };
