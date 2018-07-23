@@ -76,7 +76,6 @@ const getUserAppointments = (data, callback) => {
   });
 };
 
-//
 // getUserAppointments({ userId: 1 }, (err, success) => {
 //   if (err) {
 //     console.log('Did not go down smooth', err);
