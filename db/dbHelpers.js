@@ -85,6 +85,16 @@ const getUserAppointments = (data, callback) => {
 //   }
 // });
 
+const getBusinessInfo = (data, callback) => {
+  const queryString = 'SELECT * FROM businesses WHERE id = ?';
+  db.query(queryString, [data.id], (err, success) => {
+    if (err) {
+      callback(err);
+    } else {
+      callback(null, success);
+    }
+  });
+};
 
 const deteleAppointment = (data, callback) => {
   const queryString = '';
@@ -115,4 +125,5 @@ module.exports = {
   getUserAppointments,
   deteleAppointment,
   updateAppointment,
+  getBusinessInfo,
 };
