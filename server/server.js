@@ -15,7 +15,7 @@ app.use((req, res, next) => {
   next();
 });
 
-app.get('/appointments/:id', (req, res) => {
+app.get('/:id', (req, res) => {
   helper.getBusinessInfo({ id: req.params.id }, (err, success) => {
     if (err) {
       res.status(404).send();
@@ -24,6 +24,5 @@ app.get('/appointments/:id', (req, res) => {
     }
   });
 });
-
 
 app.listen(PORT, () => console.log(`Nice Jordan, app listening on port ${PORT}!`));
