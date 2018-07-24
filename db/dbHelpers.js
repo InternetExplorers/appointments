@@ -11,14 +11,6 @@ const addUser = (data, callback) => {
   });
 };
 
-// addUser({ firstName: 'Jordan', lastName: 'Bice', phone: '510-100-0000', email: 'jordanbice@blackrockgroup.com' }, (err, success) => {
-//   if (err) {
-//     console.log('Did not go down smooth', err);
-//   } else if (success) {
-//     console.log('Data loaded onto DB@');
-//   }
-// });
-
 const addAppointment = (data, callback) => {
   const dateString = new Intl.DateTimeFormat('en-US').format(data.dateTime);
   const queryString = 'INSERT INTO appointments_log (customer_id, business_id, start_time, date_string, guest_count) VALUES(?, ?, ?, ?, ?)';
@@ -30,18 +22,6 @@ const addAppointment = (data, callback) => {
     }
   });
 };
-//
-// const newDate = new Date(2018, 11, 24, 10, 33, 30, 0);
-//
-//
-// addAppointment ({ customerId: 1, businessId: 1, dateTime: newDate, guestCount: 2 }, (err, success) => {
-//   if (err) {
-//     console.log('Did not go down smooth', err);
-//   } else if (success) {
-//     console.log('Data loaded onto DB@');
-//   }
-// });
-
 
 const getAvailability = (data, callback) => {
   const dateString = new Intl.DateTimeFormat('en-US').format(data.dateTime);
@@ -55,16 +35,6 @@ const getAvailability = (data, callback) => {
   });
 };
 
-// const newDate = new Date(2018, 11, 24, 10, 33, 30, 0);
-//
-// getAvailability({ businessId: 1, dateTime: newDate }, (err, success) => {
-//   if (err) {
-//     console.log('Did not go down smooth', err);
-//   } else {
-//     console.log('Data loaded from DB', success);
-//   }
-// });
-
 const getUserAppointments = (data, callback) => {
   const queryString = 'SELECT appointments_log.start_time, appointments_log.guest_count, businesses.name, businesses.address, businesses.city, businesses.phone FROM appointments_log INNER JOIN businesses ON appointments_log.business_id = businesses.id WHERE customer_id = ?';
   db.query(queryString, [data.userId], (err, success) => {
@@ -76,13 +46,6 @@ const getUserAppointments = (data, callback) => {
   });
 };
 
-// getUserAppointments({ userId: 1 }, (err, success) => {
-//   if (err) {
-//     console.log('Did not go down smooth', err);
-//   } else {
-//     console.log('Data loaded from DB', success);
-//   }
-// });
 
 const getBusinessInfo = (data, callback) => {
   const queryString = 'SELECT * FROM businesses WHERE id = ?';
@@ -95,34 +58,34 @@ const getBusinessInfo = (data, callback) => {
   });
 };
 
-const deteleAppointment = (data, callback) => {
-  const queryString = '';
-  db.query(queryString, (err, success) => {
-    if (err) {
-      callback(err);
-    } else {
-      callback(null, success);
-    }
-  });
-};
+// const deteleAppointment = (data, callback) => {
+//   const queryString = '';
+//   db.query(queryString, (err, success) => {
+//     if (err) {
+//       callback(err);
+//     } else {
+//       callback(null, success);
+//     }
+//   });
+// };
 
-const updateAppointment = (data, callback) => {
-  const queryString = '';
-  db.query(queryString, (err, success) => {
-    if (err) {
-      callback(err);
-    } else {
-      callback(null, success);
-    }
-  });
-};
+// const updateAppointment = (data, callback) => {
+//   const queryString = '';
+//   db.query(queryString, (err, success) => {
+//     if (err) {
+//       callback(err);
+//     } else {
+//       callback(null, success);
+//     }
+//   });
+// };
 
 module.exports = {
   addUser,
   addAppointment,
   getAvailability,
   getUserAppointments,
-  deteleAppointment,
-  updateAppointment,
   getBusinessInfo,
+  // deteleAppointment,
+  // updateAppointment,
 };
