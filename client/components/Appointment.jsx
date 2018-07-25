@@ -126,7 +126,6 @@ class Appointment extends React.Component {
       },
       dataType: 'json',
     });
-
     this.forceUpdate();
   }
 
