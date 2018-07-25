@@ -65,7 +65,7 @@ const LevelThree = (props) => {
         {isValid
           ? (
             <button type="submit" onClick={book}>
-                    Book Appointment
+              Book Appointment
             </button>
           )
           : (
