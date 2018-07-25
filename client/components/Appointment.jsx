@@ -102,6 +102,48 @@ class Appointment extends React.Component {
   }
 
   render() {
+    const {
+      nextTwoWeeks, timeRange, businessMax, view,
+      businessName, businessAddress, businessCity, businessState, businessZip,
+      selectedDate, selectedTime, firstName, lastName, email, phone, guestCount,
+    } = this.state;
+
+    if (view === 1) {
+      return (
+        <div>
+          <LevelOne
+            nextTwoWeeks={nextTwoWeeks}
+            times={timeRange}
+            max={businessMax}
+            change={this.handleChange}
+            next={this.next}
+          />
+        </div>
+      );
+    }
+    if (view === 2) {
+      return (
+        <div>
+          <LevelThree
+            date={selectedDate}
+            time={selectedTime}
+            name={businessName}
+            address={businessAddress}
+            city={businessCity}
+            state={businessState}
+            zip={businessZip}
+            change={this.handleChange}
+            book={this.makeAppointment}
+            first={firstName}
+            last={lastName}
+            email={email}
+            phone={phone}
+            count={guestCount}
+            back={this.back}
+          />
+        </div>
+      );
+    }
     return (
       <div>
         Stretch Goal...
