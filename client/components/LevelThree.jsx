@@ -85,6 +85,7 @@ const LevelThree = (props) => {
     fontSize: '12px',
     fontWeight: '600',
     lineHeight: '1.5em',
+    height: '34px',
   };
 
 

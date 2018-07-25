@@ -10,21 +10,26 @@ const LevelOne = (props) => {
   const largeSelectable = {
     marginTop: '10px',
     width: '100%',
-    padding: '5px',
-    paddingLeft: '20px',
-    fontSize: '12px',
+    fontSize: '14px',
     border: '1px solid #ccc',
     height: '34px',
+    fontFamily: 'Helvetica',
   };
 
-  const selectableField = {
+  const leftSmallSlectable = {
     marginTop: '10px',
-    marginLeft: '2.5%',
-    marginRight: '2.5%',
-    width: '45%',
-    padding: '5px',
-    paddingLeft: '20px',
-    fontSize: '12px',
+    marginRight: '5%',
+    width: '47.5%',
+    fontSize: '14px',
+    border: '1px solid #ccc',
+    height: '34px',
+    marginBottom: '10px',
+  };
+
+  const rightSmallSelectable = {
+    marginTop: '10px',
+    width: '47.5%',
+    fontSize: '14px',
     border: '1px solid #ccc',
     height: '34px',
     marginBottom: '10px',
@@ -41,6 +46,8 @@ const LevelOne = (props) => {
     fontSize: '12px',
     fontWeight: '600',
     lineHeight: '1.5em',
+    height: '34px',
+
   };
 
 
@@ -65,23 +72,23 @@ const LevelOne = (props) => {
       <div>
         <select onChange={change} name="selectedDate" value={date} style={largeSelectable}>
           {nextTwoWeeks.map(possibleDate => (
-            <option value={possibleDate}>
+            <option value={possibleDate} key={possibleDate.toString()}>
               {possibleDate}
             </option>
           ))}
         </select>
       </div>
       <div>
-        <select onChange={change} name="selectedTime" value={time} style={selectableField}>
+        <select onChange={change} name="selectedTime" value={time} style={leftSmallSlectable}>
           {times.map(possibleTime => (
-            <option value={possibleTime}>
+            <option value={possibleTime} key={possibleTime.toString()}>
               {possibleTime}
             </option>
           ))}
         </select>
-        <select onChange={change} name="guestCount" value={count} style={selectableField}>
+        <select onChange={change} name="guestCount" value={count} style={rightSmallSelectable}>
           {guestCount.map(possibleGuestCount => (
-            <option value={possibleGuestCount}>
+            <option value={possibleGuestCount} key={possibleGuestCount.toString()}>
               {possibleGuestCount}
             </option>
           ))}
