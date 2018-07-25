@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 const LevelThree = (props) => {
   const {
@@ -76,6 +77,24 @@ const LevelThree = (props) => {
       </div>
     </form>
   );
+};
+
+LevelThree.propTypes = {
+  name: PropTypes.string.isRequired,
+  address: PropTypes.string.isRequired,
+  city: PropTypes.string.isRequired,
+  state: PropTypes.string.isRequired,
+  zip: PropTypes.string.isRequired,
+  change: PropTypes.func.isRequired,
+  date: PropTypes.string.isRequired,
+  time: PropTypes.string.isRequired,
+  book: PropTypes.func.isRequired,
+  first: PropTypes.string.isRequired,
+  last: PropTypes.string.isRequired,
+  email: PropTypes.string.isRequired,
+  phone: PropTypes.string.isRequired,
+  count: PropTypes.number.isRequired,
+  back: PropTypes.func.isRequired,
 };
 
 export default LevelThree;
