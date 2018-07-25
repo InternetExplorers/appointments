@@ -4,6 +4,14 @@ import moment from 'moment';
 import LevelOne from './LevelOne.jsx';
 import LevelThree from './LevelThree.jsx';
 
+const outerShell = {
+  width: '300px',
+  padding: '20px',
+  border: '1px solid lightGrey',
+  borderRadius: '5px',
+  fontFamily: 'Helvetica',
+};
+
 class Appointment extends React.Component {
   constructor(props) {
     super(props);
@@ -139,7 +147,7 @@ class Appointment extends React.Component {
 
     if (view === 1) {
       return (
-        <div>
+        <div style={outerShell}>
           <LevelOne
             nextTwoWeeks={nextTwoWeeks}
             times={timeRange}
@@ -155,7 +163,7 @@ class Appointment extends React.Component {
     }
     if (view === 2) {
       return (
-        <div>
+        <div style={outerShell}>
           <LevelThree
             date={selectedDate}
             time={selectedTime}
@@ -177,7 +185,7 @@ class Appointment extends React.Component {
       );
     }
     return (
-      <div>
+      <div style={outerShell}>
         Stretch Goal...
       </div>
     );
