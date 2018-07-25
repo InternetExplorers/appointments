@@ -68,7 +68,7 @@ class Appointment extends React.Component {
 
     const { businessId } = this.state;
     $.ajax({
-      url: `business/${businessId}`,
+      url: `/business/${businessId}`,
       method: 'GET',
       dataType: 'json',
       success: (dbData) => {
@@ -108,7 +108,7 @@ class Appointment extends React.Component {
     } = this.state;
 
     $.ajax({
-      url: `business/${businessId}/appointment`,
+      url: `/business/${businessId}/appointments`,
       method: 'POST',
       data: {
         userDetails: {
