@@ -9,16 +9,16 @@ class Appointment extends React.Component {
     super(props);
     this.state = {
       businessId: Math.floor(Math.random() * Math.floor(100)),
-      businessName: null,
-      businessMax: null,
-      businessAddress: null,
-      businessCity: null,
-      businessState: null,
-      businessZip: null,
+      businessName: '',
+      businessMax: 0,
+      businessAddress: '',
+      businessCity: '',
+      businessState: '',
+      businessZip: '',
       timeRange: [],
-      guestCount: 1,
-      selectedDate: null,
-      selectedTime: null,
+      guestCount: '1',
+      selectedDate: '',
+      selectedTime: '',
       firstName: '',
       lastName: '',
       email: '',
@@ -146,6 +146,9 @@ class Appointment extends React.Component {
             max={businessMax}
             change={this.handleChange}
             next={this.next}
+            count={guestCount}
+            date={selectedDate}
+            time={selectedTime}
           />
         </div>
       );
