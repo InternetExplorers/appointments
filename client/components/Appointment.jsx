@@ -47,10 +47,11 @@ class Appointment extends React.Component {
     defaultTimes();
 
     const formatTimes = (opens, closes) => {
-      const mutableOpens = moment(opens, 'HH:mm:a');
-      const timesArray = [mutableOpens.format('LT')];
+      const mutableOpens = opens;
+      const mutableCloses = closes;
+      const timesArray = [moment(mutableOpens, 'HH:mm:a').format('LT')];
       for (let j = 0; j < 12; j += 1) {
-        const endHour = moment(closes, 'HH:mm:a');
+        const endHour = moment(mutableCloses, 'HH:mm:a');
         const currHour = moment(timesArray[timesArray.length - 1], 'HH:mm:a').add(1, 'h');
         if (endHour.isBefore(moment('04:00:00', 'HH:mm:a')) && currHour.diff(endHour) <= 79200000) {
           timesArray.push(currHour.format('LT'));
