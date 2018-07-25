@@ -1,7 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import DaysOption from './DaysOption.jsx';
-import TimesOption from './TimesOption.jsx';
 
 const LevelOne = (props) => {
   const {
@@ -24,26 +22,24 @@ const LevelOne = (props) => {
       </h3>
       <div>
         <select onChange={change} name="selectedDate" value={date}>
-          {nextTwoWeeks.map((e, i) => (
-            <DaysOption
-              day={e}
-              key={i}
-            />
+          {nextTwoWeeks.map(e => (
+            <option value={e}>
+              {e}
+            </option>
           ))}
         </select>
       </div>
       <div>
         <select onChange={change} name="selectedTime" value={time}>
-          {times.map((ele, ind) => (
-            <TimesOption
-              time={ele}
-              key={ind}
-            />
+          {times.map(ele => (
+            <option value={ele}>
+              {ele}
+            </option>
           ))}
         </select>
         <select onChange={change} name="guestCount" value={count}>
-          {guestCount.map((element, index) => (
-            <option value={element} key={index}>
+          {guestCount.map(element => (
+            <option value={element}>
               {element}
             </option>
           ))}
