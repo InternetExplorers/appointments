@@ -1,5 +1,16 @@
 const db = require('./index');
 
+const checkUser = (data, callback) => {
+  const queryString = 'SELECT * FROM users WHERE email = ?';
+  db.query(queryString, [data], (err, success) => {
+    if (err) {
+      callback(err);
+    } else {
+      callback(null, success);
+    }
+  });
+};
+
 const addUser = (data, callback) => {
   const queryString = 'INSERT INTO users (first_name, last_name, phone, email ) VALUES(?, ?, ? , ?)';
   db.query(queryString, [data.firstName, data.lastName, data.phone, data.email], (err, success) => {
@@ -12,9 +23,8 @@ const addUser = (data, callback) => {
 };
 
 const addAppointment = (data, callback) => {
-  const dateString = new Intl.DateTimeFormat('en-US').format(data.dateTime);
-  const queryString = 'INSERT INTO appointments_log (customer_id, business_id, start_time, date_string, guest_count) VALUES(?, ?, ?, ?, ?)';
-  db.query(queryString, [data.customerId, data.businessId, data.dateTime, dateString, data.guestCount], (err, success) => {
+  const queryString = 'INSERT INTO appointments_log (business_id, customer_id, start_time, date_string, guest_count) VALUES(?, ?, ?, ?, ?)';
+  db.query(queryString, [data.businessId, data.customerId, data.time, data.date, data.count], (err, success) => {
     if (err) {
       callback(err);
     } else {
@@ -81,6 +91,7 @@ const getBusinessInfo = (data, callback) => {
 // };
 
 module.exports = {
+  checkUser,
   addUser,
   addAppointment,
   getAvailability,
