@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 const DaysOption = (props) => {
   const { day } = props;
@@ -7,6 +8,10 @@ const DaysOption = (props) => {
       {day}
     </option>
   );
+};
+
+DaysOption.propTypes = {
+  day: PropTypes.string.isRequired,
 };
 
 export default DaysOption;
