@@ -54,7 +54,8 @@ const LevelThree = (props) => {
           {addressString}
         </div>
         <div>
-          Guests: &nbsp;
+          Guests:
+          {' '}
           {count}
         </div>
         <div>
