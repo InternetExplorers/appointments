@@ -41,7 +41,7 @@ const LevelThree = (props) => {
       <div>
         <div>
           {date}
-          {' | '}
+          {' at '}
           {time}
         </div>
         <div>
