@@ -31,6 +31,7 @@ class Appointment extends React.Component {
     this.next = this.next.bind(this);
     this.back = this.back.bind(this);
     this.handleChange = this.handleChange.bind(this);
+    this.makeAppointment = this.makeAppointment.bind(this);
   }
 
   componentDidMount() {
@@ -99,6 +100,36 @@ class Appointment extends React.Component {
     const field = e.target.name;
     const target = e.target.value;
     this.setState({ [field]: target });
+  }
+
+  makeAppointment() {
+    const {
+      firstName, lastName, phone, email,
+      businessId, selectedTime, selectedDate, guestCount,
+    } = this.state;
+
+    $.ajax({
+      url: `/${businessId}/appointment`,
+      method: 'POST',
+      data: {
+        userDetails: {
+          firstName,
+          lastName,
+          phone,
+          email,
+        },
+        appointmentDetails: {
+          businessId,
+          customerId: null,
+          time: selectedTime,
+          date: selectedDate,
+          count: guestCount,
+        },
+      },
+      dataType: 'json',
+    });
+
+    this.forceUpdate();
   }
 
   render() {
