@@ -1,10 +1,8 @@
 import React from 'react';
 import $ from 'jquery';
 import moment from 'moment';
-
 import LevelOne from './LevelOne.jsx';
 import LevelThree from './LevelThree.jsx';
-
 
 class Appointment extends React.Component {
   constructor(props) {
