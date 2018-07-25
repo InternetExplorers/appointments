@@ -15,7 +15,7 @@ app.use((req, res, next) => {
   next();
 });
 
-app.get('business/:id/', (req, res) => {
+app.get('/business/:id', (req, res) => {
   helper.getBusinessInfo({ id: req.params.id }, (err, success) => {
     if (err) {
       res.status(404).send();
@@ -25,7 +25,7 @@ app.get('business/:id/', (req, res) => {
   });
 });
 
-app.post('business/:id/appointments', (req, res) => {
+app.post('/business/:id/appointments', (req, res) => {
   helper.checkUser(req.body.userDetails.email, (err, succ) => {
     if (err) {
       res.status(500).send();
