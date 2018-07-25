@@ -29,12 +29,12 @@ CREATE TABLE businesses (
 
 CREATE TABLE appointments_log (
   id INT NOT NULL AUTO_INCREMENT,
-  customer_id INT(10),
   business_id INT(10),
-  start_time DATETIME,
-  date_string VARCHAR(15),
+  customer_id INT(10),
+  start_time VARCHAR(20),
+  date_string VARCHAR(20),
   guest_count INT(3),
   PRIMARY KEY(id),
-  FOREIGN KEY(customer_id) REFERENCES users(id),
-  FOREIGN KEY(business_id) REFERENCES businesses(id)
+  FOREIGN KEY(business_id) REFERENCES businesses(id),
+  FOREIGN KEY(customer_id) REFERENCES users(id)
 );
