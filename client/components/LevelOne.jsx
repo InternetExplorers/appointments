@@ -5,7 +5,7 @@ import TimesOption from './TimesOption.jsx';
 
 const LevelOne = (props) => {
   const {
-    nextTwoWeeks, times, max, next, change,
+    nextTwoWeeks, times, max, next, change, count, date, time,
   } = props;
 
   const guestCount = [];
@@ -23,7 +23,7 @@ const LevelOne = (props) => {
         Make a Reservation
       </h3>
       <div>
-        <select onChange={change} name="selectedDate">
+        <select onChange={change} name="selectedDate" value={date}>
           {nextTwoWeeks.map((e, i) => (
             <DaysOption
               day={e}
@@ -33,7 +33,7 @@ const LevelOne = (props) => {
         </select>
       </div>
       <div>
-        <select onChange={change} name="selectedTime">
+        <select onChange={change} name="selectedTime" value={time}>
           {times.map((ele, ind) => (
             <TimesOption
               time={ele}
@@ -41,7 +41,7 @@ const LevelOne = (props) => {
             />
           ))}
         </select>
-        <select onChange={change} name="guestCount">
+        <select onChange={change} name="guestCount" value={count}>
           {guestCount.map((element, index) => (
             <option value={element} key={index}>
               {element}
@@ -62,6 +62,9 @@ LevelOne.propTypes = {
   max: PropTypes.number.isRequired,
   next: PropTypes.func.isRequired,
   change: PropTypes.func.isRequired,
+  count: PropTypes.string.isRequired,
+  date: PropTypes.string.isRequired,
+  time: PropTypes.string.isRequired,
 };
 
 
