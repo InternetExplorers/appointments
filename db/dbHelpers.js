@@ -67,27 +67,6 @@ const getBusinessInfo = (data, callback) => {
   });
 };
 
-// const deteleAppointment = (data, callback) => {
-//   const queryString = '';
-//   db.query(queryString, (err, success) => {
-//     if (err) {
-//       callback(err);
-//     } else {
-//       callback(null, success);
-//     }
-//   });
-// };
-
-// const updateAppointment = (data, callback) => {
-//   const queryString = '';
-//   db.query(queryString, (err, success) => {
-//     if (err) {
-//       callback(err);
-//     } else {
-//       callback(null, success);
-//     }
-//   });
-// };
 
 module.exports = {
   checkUser,
@@ -96,6 +75,4 @@ module.exports = {
   getAvailability,
   getUserAppointments,
   getBusinessInfo,
-  // deteleAppointment,
-  // updateAppointment,
 };
