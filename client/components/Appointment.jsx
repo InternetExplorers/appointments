@@ -82,6 +82,22 @@ class Appointment extends React.Component {
     });
   }
 
+  next() {
+    const { view } = this.state;
+    this.setState({ view: view + 1 });
+  }
+
+  back() {
+    const { view } = this.state;
+    this.setState({ view: view - 1 });
+  }
+
+  handleChange(e) {
+    const field = e.target.name;
+    const target = e.target.value;
+    this.setState({ [field]: target });
+  }
+
   render() {
     return (
       <div>
