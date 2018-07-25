@@ -22,25 +22,25 @@ const LevelOne = (props) => {
       </h3>
       <div>
         <select onChange={change} name="selectedDate" value={date}>
-          {nextTwoWeeks.map(e => (
-            <option value={e}>
-              {e}
+          {nextTwoWeeks.map(possibleDate => (
+            <option value={possibleDate}>
+              {possibleDate}
             </option>
           ))}
         </select>
       </div>
       <div>
         <select onChange={change} name="selectedTime" value={time}>
-          {times.map(ele => (
-            <option value={ele}>
-              {ele}
+          {times.map(possibleTime => (
+            <option value={possibleTime}>
+              {possibleTime}
             </option>
           ))}
         </select>
         <select onChange={change} name="guestCount" value={count}>
-          {guestCount.map(element => (
-            <option value={element}>
-              {element}
+          {guestCount.map(possibleGuestCount => (
+            <option value={possibleGuestCount}>
+              {possibleGuestCount}
             </option>
           ))}
         </select>
@@ -62,6 +62,5 @@ LevelOne.propTypes = {
   date: PropTypes.string.isRequired,
   time: PropTypes.string.isRequired,
 };
-
 
 export default LevelOne;
