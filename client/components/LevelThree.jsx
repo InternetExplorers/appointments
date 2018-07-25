@@ -93,7 +93,7 @@ LevelThree.propTypes = {
   last: PropTypes.string.isRequired,
   email: PropTypes.string.isRequired,
   phone: PropTypes.string.isRequired,
-  count: PropTypes.number.isRequired,
+  count: PropTypes.string.isRequired,
   back: PropTypes.func.isRequired,
 };
 
