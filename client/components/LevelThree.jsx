@@ -9,24 +9,24 @@ const LevelThree = (props) => {
 
   const addressString = `${city} ${state}, ${zip}`;
 
-  let isValid = false;
-  if (first && last && email && phone) {
-    isValid = true;
-  }
-
   const notValid = (event) => {
     event.preventDefault();
     alert('Must complete the required fields.');
   };
+
+  let isValid = false;
+  if (first && last && email && phone) {
+    isValid = true;
+  }
 
   return (
     <form>
       <div>
         <div>
           First Name*
-          <input onChange={change} type="text" name="firstName" value={first} />
+          <input onChange={change} name="firstName" value={first} />
           Last Name*
-          <input onChange={change} tyep="text" name="lastName" value={last} />
+          <input onChange={change} name="lastName" value={last} />
         </div>
         <div>
           Email*
