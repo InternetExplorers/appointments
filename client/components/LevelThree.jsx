@@ -13,7 +13,8 @@ const LevelThree = (props) => {
     isValid = true;
   }
 
-  const notValid = () => {
+  const notValid = (event) => {
+    event.preventDefault();
     alert('Must complete the required fields.');
   };
 
