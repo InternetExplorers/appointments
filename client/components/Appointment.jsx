@@ -1,76 +1,91 @@
 import React from 'react';
 import $ from 'jquery';
+import moment from 'moment';
+
+import LevelOne from './LevelOne.jsx';
+import LevelThree from './LevelThree.jsx';
+
 
 class Appointment extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      businessId: 5,
+      businessId: Math.floor(Math.random() * Math.floor(100)),
       businessName: null,
-      businessAvailability: [],
       businessMax: null,
       businessAddress: null,
       businessCity: null,
       businessState: null,
       businessZip: null,
-      businessPhone: null,
-      businessOpens: null,
-      businessCloses: null,
-      guestCount: 0,
+      timeRange: [],
+      guestCount: 1,
       selectedDate: null,
       selectedTime: null,
-      firstName: null,
-      lastName: null,
-      email: null,
-      phone: null,
-    }
+      firstName: '',
+      lastName: '',
+      email: '',
+      phone: '',
+      nextTwoWeeks: [],
+      view: 1,
+    };
   }
 
-
   componentDidMount() {
+    const defaultTimes = () => {
+      const twoWeeks = [];
+      for (let i = 0; i < 14; i += 1) {
+        twoWeeks.push(moment().add(i, 'days').format('LL'));
+      }
+      const defaultDate = twoWeeks[0];
+      this.setState({
+        nextTwoWeeks: twoWeeks,
+        selectedDate: defaultDate,
+      });
+    };
+    defaultTimes();
+
+    const formatTimes = (opens, closes) => {
+      const mutableOpens = moment(opens, 'HH:mm:a');
+      const timesArray = [mutableOpens.format('LT')];
+      for (let j = 0; j < 12; j += 1) {
+        const endHour = moment(closes, 'HH:mm:a');
+        const currHour = moment(timesArray[timesArray.length - 1], 'HH:mm:a').add(1, 'h');
+        if (endHour.isBefore(moment('04:00:00', 'HH:mm:a')) && currHour.diff(endHour) <= 79200000) {
+          timesArray.push(currHour.format('LT'));
+        } else if (currHour.isBefore(endHour.subtract(0.5, 'h'))) {
+          timesArray.push(currHour.format('LT'));
+        }
+      }
+      const defaultTime = timesArray[0];
+      this.setState({
+        timeRange: timesArray,
+        selectedTime: defaultTime,
+      });
+    };
+
+    const { businessId } = this.state;
     $.ajax({
-      url:' /appointments/' + this.state.businessId,
+      url: `/${businessId}`,
       method: 'GET',
       dataType: 'json',
       success: (dbData) => {
-        console.log('Server Data loaded!', dbData);
         this.setState({
-          businessName: dbData.name,
-          businessAvailability: `${dbData.opens} - ${dbData.closes}`,
-          businessMax: dbData.guest_max,
-          businessAddress: dbData.address,
-          businessCity: dbData.city,
-          businessState: dbData.state,
-          businessZip: dbData.zip,
-          businessPhone: dbData.phone,
-          businessOpens: dbData.opens,
-          businessCloses: dbData.closes,
+          businessName: dbData[0].name,
+          businessMax: dbData[0].guest_max,
+          businessAddress: dbData[0].address,
+          businessCity: dbData[0].city,
+          businessState: dbData[0].state,
+          businessZip: dbData[0].zip,
         });
-      }
+        formatTimes(dbData[0].opens, dbData[0].closes);
+      },
     });
   }
-
 
   render() {
     return (
       <div>
-        <div>
-          {this.state.businessAvailability} <br />
-          {this.state.businessName} <br />
-          {this.state.businessMax} <br />
-          {this.state.businessAddress} <br />
-          {this.state.businessCity} <br />
-          {this.state.businessState} <br />
-          {this.state.businessZip} <br />
-          {this.state.businessPhone} <br />
-          {this.state.businessOpens} <br />
-          {this.state.businessCloses} <br />
-        </div>
-        <div>
-          <h1>
-            TEST
-          </h1>
-        </div>
+        Stretch Goal...
       </div>
     );
   }
