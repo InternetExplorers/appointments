@@ -28,6 +28,9 @@ class Appointment extends React.Component {
       nextTwoWeeks: [],
       view: 1,
     };
+    this.next = this.next.bind(this);
+    this.back = this.back.bind(this);
+    this.handleChange = this.handleChange.bind(this);
   }
 
   componentDidMount() {
