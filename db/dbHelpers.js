@@ -34,9 +34,8 @@ const addAppointment = (data, callback) => {
 };
 
 const getAvailability = (data, callback) => {
-  const dateString = new Intl.DateTimeFormat('en-US').format(data.dateTime);
   const queryString = 'SELECT appointments_log.*, businesses.name FROM appointments_log INNER JOIN businesses ON appointments_log.business_id = businesses.id WHERE business_id = ? AND date_string = ?';
-  db.query(queryString, [data.businessId, dateString], (err, success) => {
+  db.query(queryString, [data.businessId, data.date], (err, success) => {
     if (err) {
       callback(err);
     } else {
