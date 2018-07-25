@@ -1,5 +1,5 @@
 import React from 'react';
-import moment from 'moment';
+import PropTypes from 'prop-types';
 import DaysOption from './DaysOption.jsx';
 import TimesOption from './TimesOption.jsx';
 
@@ -49,9 +49,20 @@ const LevelOne = (props) => {
           ))}
         </select>
       </div>
-      <button onClick={next}>Find a Table</button>
+      <button type="button" onClick={next}>
+        Find a Table
+      </button>
     </div>
   );
 };
+
+LevelOne.propTypes = {
+  nextTwoWeeks: PropTypes.arrayOf(PropTypes.string).isRequired,
+  times: PropTypes.arrayOf(PropTypes.string).isRequired,
+  max: PropTypes.number.isRequired,
+  next: PropTypes.func.isRequired,
+  change: PropTypes.func.isRequired,
+};
+
 
 export default LevelOne;
