@@ -25,4 +25,36 @@ app.get('/:id', (req, res) => {
   });
 });
 
+app.post('/:id/appointment', (req, res) => {
+  helper.checkUser(req.body.userDetails.email, (err, succ) => {
+    if (err) {
+      res.status(500).send();
+    } else if (succ[0]) {
+      req.body.appointmentDetails.customerId = `${succ[0].id}`;
+      helper.addAppointment(req.body.appointmentDetails, (error, success) => {
+        if (error) {
+          res.status(400).send();
+        } else {
+          res.status(200).send(success);
+        }
+      });
+    } else {
+      helper.addUser(req.body.userDetails, (failed, succeeded) => {
+        if (failed) {
+          res.status(400).send();
+        } else {
+          req.body.appointmentDetails.customerId = `${succeeded.insertId}`;
+          helper.addAppointment(req.body.appointmentDetails, (error, success) => {
+            if (error) {
+              res.status(400).send();
+            } else {
+              res.status(200).send(success);
+            }
+          });
+        }
+      });
+    }
+  });
+});
+
 app.listen(PORT, () => console.log(`Nice Jordan, app listening on port ${PORT}!`));
