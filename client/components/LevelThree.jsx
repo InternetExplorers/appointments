@@ -47,12 +47,12 @@ const LevelThree = (props) => {
     gridRow: '1',
   };
 
-  const PlaceStyleA = {
+  const placeStyleA = {
     gridColumn: '1 / 5',
     gridRow: '3',
   };
 
-  const PlaceStyleB = {
+  const placeStyleB = {
     gridColumn: '2 / 5',
     gridRow: '3/5',
   };
@@ -74,7 +74,6 @@ const LevelThree = (props) => {
     color: '#0073bb',
   };
 
-
   const findTableButton = {
     width: '100%',
     color: 'white',
@@ -88,7 +87,6 @@ const LevelThree = (props) => {
     lineHeight: '1.5em',
     height: '34px',
   };
-
 
   const {
     name, address, city, state, zip, change, date, time, book,
@@ -158,10 +156,10 @@ const LevelThree = (props) => {
           {' at '}
           {time}
         </div>
-        <div style={PlaceStyleA}>
+        <div style={placeStyleA}>
           Place:
         </div>
-        <div style={PlaceStyleB}>
+        <div style={placeStyleB}>
           {name}
           <br />
           {address}

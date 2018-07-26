@@ -161,32 +161,25 @@ class Appointment extends React.Component {
         </div>
       );
     }
-    if (view === 2) {
-      return (
-        <div style={outerShell}>
-          <LevelThree
-            date={selectedDate}
-            time={selectedTime}
-            name={businessName}
-            address={businessAddress}
-            city={businessCity}
-            state={businessState}
-            zip={businessZip}
-            change={this.handleChange}
-            book={this.makeAppointment}
-            first={firstName}
-            last={lastName}
-            email={email}
-            phone={phone}
-            count={guestCount}
-            back={this.back}
-          />
-        </div>
-      );
-    }
     return (
       <div style={outerShell}>
-        Stretch Goal...
+        <LevelThree
+          date={selectedDate}
+          time={selectedTime}
+          name={businessName}
+          address={businessAddress}
+          city={businessCity}
+          state={businessState}
+          zip={businessZip}
+          change={this.handleChange}
+          book={this.makeAppointment}
+          first={firstName}
+          last={lastName}
+          email={email}
+          phone={phone}
+          count={guestCount}
+          back={this.back}
+        />
       </div>
     );
   }
