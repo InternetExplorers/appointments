@@ -56,7 +56,7 @@ const LevelOne = (props) => {
   } = props;
 
   const guestCount = [];
-  for (let j = 1; j <= 12; j += 1) {
+  for (let j = 2; j <= 12; j += 1) {
     if (j <= max) {
       guestCount.push(j);
     } else {

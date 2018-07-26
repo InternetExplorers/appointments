@@ -24,7 +24,7 @@ class Appointment extends React.Component {
       businessState: '',
       businessZip: '',
       timeRange: [],
-      guestCount: '1',
+      guestCount: '2',
       selectedDate: '',
       selectedTime: '',
       firstName: '',

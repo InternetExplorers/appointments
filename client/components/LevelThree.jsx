@@ -27,6 +27,7 @@ const LevelThree = (props) => {
     marginBottom: '20px',
     width: '90%',
     padding: '5%',
+    paddingTop: '10%',
     background: 'lightGrey',
     borderRadius: '5px',
     fontSize: '12px',
@@ -69,7 +70,7 @@ const LevelThree = (props) => {
   const editStyle = {
     gridColumn: '1 / 5',
     gridRow: '4',
-    paddingTop: '25px',
+    paddingTop: '15px',
     color: '#0073bb',
   };
 
@@ -145,7 +146,7 @@ const LevelThree = (props) => {
           </div>
         </div>
         <div style={leftCol}>
-          *required fields
+          *required field
         </div>
       </div>
       <div style={summary}>
@@ -171,9 +172,9 @@ const LevelThree = (props) => {
           Party:
         </div>
         <div style={guestStlyeB}>
-          Guests:
-          {' '}
           {count}
+          {' '}
+          People
         </div>
         <div style={editStyle}>
           <div role="button" tabIndex={0} onClick={back} onKeyPress={back}>
