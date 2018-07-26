@@ -2,6 +2,94 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 const LevelThree = (props) => {
+  const titleStyle = {
+    fontSize: '20px',
+    fontWeight: '600',
+    color: '#d90007',
+  };
+
+  const leftCol = {
+    width: '30%',
+    marginTop: '10px',
+    fontSize: '12px',
+  };
+
+  const rightCol = {
+    width: '100%',
+  };
+
+  const inputStyle = {
+    width: '100%',
+  };
+
+  const summary = {
+    marginTop: '20px',
+    marginBottom: '20px',
+    width: '90%',
+    padding: '5%',
+    paddingTop: '10%',
+    background: 'lightGrey',
+    borderRadius: '5px',
+    fontSize: '12px',
+    borderColor: 'grey',
+    display: 'grid',
+    gridTemplateColumns: 'repeat(4, 1fr)',
+    gridAutoRows: 'minmax(40px, auto)',
+  };
+
+  const timeStyleA = {
+    gridColumn: '1 / 5',
+    gridRow: '1',
+  };
+
+  const timeStyleB = {
+    gridColumn: '2 / 5',
+    gridRow: '1',
+  };
+
+  const PlaceStyleA = {
+    gridColumn: '1 / 5',
+    gridRow: '3',
+  };
+
+  const PlaceStyleB = {
+    gridColumn: '2 / 5',
+    gridRow: '3/5',
+  };
+
+  const guestStlyeA = {
+    gridColumn: '1 / 5',
+    gridRow: '2',
+  };
+
+  const guestStlyeB = {
+    gridColumn: '2',
+    gridRow: '2',
+  };
+
+  const editStyle = {
+    gridColumn: '1 / 5',
+    gridRow: '4',
+    paddingTop: '15px',
+    color: '#0073bb',
+  };
+
+
+  const findTableButton = {
+    width: '100%',
+    color: 'white',
+    background: '#d90007',
+    borderColor: '#8d0005',
+    boxShadow: '0 1px 1px rgba(0,0,0,0.3)',
+    borderRadius: '5px',
+    padding: '5px 8px',
+    fontSize: '12px',
+    fontWeight: '600',
+    lineHeight: '1.5em',
+    height: '34px',
+  };
+
+
   const {
     name, address, city, state, zip, change, date, time, book,
     first, last, email, phone, count, back,
@@ -22,60 +110,90 @@ const LevelThree = (props) => {
   return (
     <form>
       <div>
-        <div>
-          First Name*
-          <input onChange={change} name="firstName" value={first} />
-          Last Name*
-          <input onChange={change} name="lastName" value={last} />
+        <div style={titleStyle}>
+          Confirm Reservation
         </div>
         <div>
-          Email*
-          <input onChange={change} name="email" value={email} />
-          Mobile Number*
-          <input onChange={change} name="phone" value={phone} />
+          <div style={leftCol}>
+            First Name*
+          </div>
+          <div style={rightCol}>
+            <input onChange={change} name="firstName" value={first} style={inputStyle} />
+          </div>
         </div>
         <div>
-          * = required field
+          <div style={leftCol}>
+            Last Name*
+          </div>
+          <div style={rightCol}>
+            <input onChange={change} name="lastName" value={last} style={inputStyle} />
+          </div>
+        </div>
+        <div>
+          <div style={leftCol}>
+            Email*
+          </div>
+          <div style={rightCol}>
+            <input onChange={change} name="email" value={email} style={inputStyle} />
+          </div>
+        </div>
+        <div>
+          <div style={leftCol}>
+            Mobile Number*
+          </div>
+          <div style={rightCol}>
+            <input onChange={change} name="phone" value={phone} style={inputStyle} />
+          </div>
+        </div>
+        <div style={leftCol}>
+          *required field
         </div>
       </div>
-      <br />
-      <div>
-        <div>
+      <div style={summary}>
+        <div syle={timeStyleA}>
+          When:
+        </div>
+        <div style={timeStyleB}>
           {date}
           {' at '}
           {time}
         </div>
-        <div>
-          {name}
+        <div style={PlaceStyleA}>
+          Place:
         </div>
-        <div>
+        <div style={PlaceStyleB}>
+          {name}
+          <br />
           {address}
           <br />
           {addressString}
         </div>
-        <div>
-          Guests:
-          {' '}
-          {count}
+        <div syle={guestStlyeA}>
+          Party:
         </div>
-        <div>
+        <div style={guestStlyeB}>
+          {count}
+          {' '}
+          People
+        </div>
+        <div style={editStyle}>
           <div role="button" tabIndex={0} onClick={back} onKeyPress={back}>
-            *edit*
+              EDIT
           </div>
         </div>
-        {isValid
-          ? (
-            <button type="submit" onClick={book}>
-              Book Appointment
-            </button>
-          )
-          : (
-            <button type="submit" onClick={notValid}>
-              Not complete
-            </button>
-          )
-        }
       </div>
+      {isValid
+        ? (
+          <button type="submit" onClick={book} style={findTableButton}>
+            Book Appointment
+          </button>
+        )
+        : (
+          <button type="submit" onClick={notValid} style={findTableButton}>
+            Not complete
+          </button>
+        )
+      }
     </form>
   );
 };
