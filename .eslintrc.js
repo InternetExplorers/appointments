@@ -1,6 +1,6 @@
 module.exports = {
     "extends": "airbnb",
-    
+
     "env": {
         "browser": true,
         "node": true
@@ -15,6 +15,7 @@ module.exports = {
     },
 
     "plugins": [
-        "react"
+        "react",
+        "jest"
     ]
 };

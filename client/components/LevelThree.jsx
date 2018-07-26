@@ -1,93 +1,94 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+const titleStyle = {
+  fontSize: '20px',
+  fontWeight: '600',
+  color: '#d90007',
+};
+
+const leftCol = {
+  width: '30%',
+  marginTop: '10px',
+  fontSize: '12px',
+};
+
+const rightCol = {
+  width: '100%',
+};
+
+const inputStyle = {
+  width: '100%',
+};
+
+const summary = {
+  marginTop: '20px',
+  marginBottom: '20px',
+  width: '90%',
+  padding: '5%',
+  paddingTop: '10%',
+  background: 'lightGrey',
+  borderRadius: '5px',
+  fontSize: '12px',
+  borderColor: 'grey',
+  display: 'grid',
+  gridTemplateColumns: 'repeat(4, 1fr)',
+  gridAutoRows: 'minmax(40px, auto)',
+};
+
+const timeStyleA = {
+  gridColumn: '1 / 5',
+  gridRow: '1',
+};
+
+const timeStyleB = {
+  gridColumn: '2 / 5',
+  gridRow: '1',
+};
+
+const placeStyleA = {
+  gridColumn: '1 / 5',
+  gridRow: '3',
+};
+
+const placeStyleB = {
+  gridColumn: '2 / 5',
+  gridRow: '3/5',
+};
+
+const guestStlyeA = {
+  gridColumn: '1 / 5',
+  gridRow: '2',
+};
+
+const guestStlyeB = {
+  gridColumn: '2',
+  gridRow: '2',
+};
+
+const editStyle = {
+  gridColumn: '1 / 5',
+  gridRow: '4',
+  paddingTop: '15px',
+  color: '#0073bb',
+};
+
+const findTableButton = {
+  width: '100%',
+  color: 'white',
+  background: '#d90007',
+  borderColor: '#8d0005',
+  boxShadow: '0 1px 1px rgba(0,0,0,0.3)',
+  borderRadius: '5px',
+  padding: '5px 8px',
+  fontSize: '12px',
+  fontWeight: '600',
+  lineHeight: '1.5em',
+  height: '34px',
+};
+
+
 const LevelThree = (props) => {
-  const titleStyle = {
-    fontSize: '20px',
-    fontWeight: '600',
-    color: '#d90007',
-  };
-
-  const leftCol = {
-    width: '30%',
-    marginTop: '10px',
-    fontSize: '12px',
-  };
-
-  const rightCol = {
-    width: '100%',
-  };
-
-  const inputStyle = {
-    width: '100%',
-  };
-
-  const summary = {
-    marginTop: '20px',
-    marginBottom: '20px',
-    width: '90%',
-    padding: '5%',
-    paddingTop: '10%',
-    background: 'lightGrey',
-    borderRadius: '5px',
-    fontSize: '12px',
-    borderColor: 'grey',
-    display: 'grid',
-    gridTemplateColumns: 'repeat(4, 1fr)',
-    gridAutoRows: 'minmax(40px, auto)',
-  };
-
-  const timeStyleA = {
-    gridColumn: '1 / 5',
-    gridRow: '1',
-  };
-
-  const timeStyleB = {
-    gridColumn: '2 / 5',
-    gridRow: '1',
-  };
-
-  const placeStyleA = {
-    gridColumn: '1 / 5',
-    gridRow: '3',
-  };
-
-  const placeStyleB = {
-    gridColumn: '2 / 5',
-    gridRow: '3/5',
-  };
-
-  const guestStlyeA = {
-    gridColumn: '1 / 5',
-    gridRow: '2',
-  };
-
-  const guestStlyeB = {
-    gridColumn: '2',
-    gridRow: '2',
-  };
-
-  const editStyle = {
-    gridColumn: '1 / 5',
-    gridRow: '4',
-    paddingTop: '15px',
-    color: '#0073bb',
-  };
-
-  const findTableButton = {
-    width: '100%',
-    color: 'white',
-    background: '#d90007',
-    borderColor: '#8d0005',
-    boxShadow: '0 1px 1px rgba(0,0,0,0.3)',
-    borderRadius: '5px',
-    padding: '5px 8px',
-    fontSize: '12px',
-    fontWeight: '600',
-    lineHeight: '1.5em',
-    height: '34px',
-  };
-
   const {
     name, address, city, state, zip, change, date, time, book,
     first, last, email, phone, count, back,
@@ -169,10 +170,10 @@ const LevelThree = (props) => {
         <div syle={guestStlyeA}>
           Party:
         </div>
-        <div style={guestStlyeB}>
+        <div id="guestCountSummary" style={guestStlyeB}>
           {count}
           {' '}
-          People
+          {count === '1' ? 'Person' : 'People'}
         </div>
         <div style={editStyle}>
           <div role="button" tabIndex={0} onClick={back} onKeyPress={back}>
