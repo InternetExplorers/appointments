@@ -76,7 +76,7 @@ const LevelOne = (props) => {
         Make a Reservation
       </div>
       <div>
-        <select id="selectedData" onChange={change} name="selectedDate" value={date} style={largeSelectable}>
+        <select id="selectedDate" onChange={change} name="selectedDate" value={date} style={largeSelectable}>
           {nextTwoWeeks.map(possibleDate => (
             <option value={possibleDate} key={possibleDate.toString()}>
               {possibleDate}
