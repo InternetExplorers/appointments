@@ -47,9 +47,7 @@ const LevelOne = (props) => {
     fontWeight: '600',
     lineHeight: '1.5em',
     height: '34px',
-
   };
-
 
   const {
     nextTwoWeeks, times, max, next, change, count, date, time,
