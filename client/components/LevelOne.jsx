@@ -49,6 +49,9 @@ const findTableButton = {
 };
 
 const getGuestCount = (maximum) => {
+  if (typeof maximum !== 'number' || maximum < 0) {
+    return null;
+  }
   const totalCount = [];
   for (let j = 1; j <= 12; j += 1) {
     if (j <= maximum) {
@@ -57,8 +60,8 @@ const getGuestCount = (maximum) => {
       break;
     }
   }
-  return totalCount
-}
+  return totalCount;
+};
 
 const LevelOne = (props) => {
   const {
@@ -73,7 +76,7 @@ const LevelOne = (props) => {
         Make a Reservation
       </div>
       <div>
-        <select onChange={change} name="selectedDate" value={date} style={largeSelectable}>
+        <select id="selectedData" onChange={change} name="selectedDate" value={date} style={largeSelectable}>
           {nextTwoWeeks.map(possibleDate => (
             <option value={possibleDate} key={possibleDate.toString()}>
               {possibleDate}
@@ -82,14 +85,14 @@ const LevelOne = (props) => {
         </select>
       </div>
       <div>
-        <select onChange={change} name="selectedTime" value={time} style={leftSmallSlectable}>
+        <select id="selectedTime" onChange={change} name="selectedTime" value={time} style={leftSmallSlectable}>
           {times.map(possibleTime => (
             <option value={possibleTime} key={possibleTime.toString()}>
               {possibleTime}
             </option>
           ))}
         </select>
-        <select onChange={change} name="guestCount" value={count} style={rightSmallSelectable}>
+        <select id="guestCount" onChange={change} name="guestCount" value={count} style={rightSmallSelectable}>
           {guestCount.map(possibleGuestCount => (
             <option value={possibleGuestCount} key={possibleGuestCount.toString()}>
               {possibleGuestCount}
