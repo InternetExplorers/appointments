@@ -48,22 +48,27 @@ const findTableButton = {
   height: '34px',
 };
 
+const getGuestCount = (maximum) => {
+  const totalCount = [];
+  for (let j = 1; j <= 12; j += 1) {
+    if (j <= maximum) {
+      totalCount.push(j);
+    } else {
+      break;
+    }
+  }
+  return totalCount
+}
+
 const LevelOne = (props) => {
   const {
     nextTwoWeeks, times, max, next, change, count, date, time,
   } = props;
 
-  const guestCount = [];
-  for (let j = 1; j <= 12; j += 1) {
-    if (j <= max) {
-      guestCount.push(j);
-    } else {
-      break;
-    }
-  }
+  const guestCount = getGuestCount(max);
 
   return (
-    <div>
+    <div id="viewOne">
       <div style={titleStyle}>
         Make a Reservation
       </div>
