@@ -33,29 +33,6 @@ const addAppointment = (data, callback) => {
   });
 };
 
-const getAvailability = (data, callback) => {
-  const queryString = 'SELECT appointments_log.*, businesses.name FROM appointments_log INNER JOIN businesses ON appointments_log.business_id = businesses.id WHERE business_id = ? AND date_string = ?';
-  db.query(queryString, [data.businessId, data.date], (err, success) => {
-    if (err) {
-      callback(err);
-    } else {
-      callback(null, success);
-    }
-  });
-};
-
-const getUserAppointments = (data, callback) => {
-  const queryString = 'SELECT appointments_log.start_time, appointments_log.guest_count, businesses.name, businesses.address, businesses.city, businesses.phone FROM appointments_log INNER JOIN businesses ON appointments_log.business_id = businesses.id WHERE customer_id = ?';
-  db.query(queryString, [data.userId], (err, success) => {
-    if (err) {
-      callback(err);
-    } else {
-      callback(null, success);
-    }
-  });
-};
-
-
 const getBusinessInfo = (data, callback) => {
   const queryString = 'SELECT * FROM businesses WHERE id = ?';
   db.query(queryString, [data.id], (err, success) => {
@@ -67,12 +44,9 @@ const getBusinessInfo = (data, callback) => {
   });
 };
 
-
 module.exports = {
   checkUser,
   addUser,
   addAppointment,
-  getAvailability,
-  getUserAppointments,
   getBusinessInfo,
 };

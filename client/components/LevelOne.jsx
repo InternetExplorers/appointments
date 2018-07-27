@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import getGuestCount from './helperFunctions/getGuestCount.jsx'
 
 const titleStyle = {
   fontSize: '20px',
@@ -46,21 +47,6 @@ const findTableButton = {
   fontWeight: '600',
   lineHeight: '1.5em',
   height: '34px',
-};
-
-const getGuestCount = (maximum) => {
-  if (typeof maximum !== 'number' || maximum < 0) {
-    return null;
-  }
-  const totalCount = [];
-  for (let j = 1; j <= 12; j += 1) {
-    if (j <= maximum) {
-      totalCount.push(j);
-    } else {
-      break;
-    }
-  }
-  return totalCount;
 };
 
 const LevelOne = (props) => {

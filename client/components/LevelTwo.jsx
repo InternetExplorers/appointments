@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import notValid from './helperFunctions/notValid.jsx';
 
 const titleStyle = {
   fontSize: '20px',
@@ -95,11 +96,6 @@ const LevelTwo = (props) => {
 
   const addressString = `${city} ${state}, ${zip}`;
 
-  const notValid = (event) => {
-    event.preventDefault();
-    alert('Must complete the required fields.');
-  };
-
   let isValid = false;
   if (first && last && email && phone) {
     isValid = true;
@@ -175,7 +171,7 @@ const LevelTwo = (props) => {
           {count === '1' ? 'Person' : 'People'}
         </div>
         <div style={editStyle}>
-          <div role="button" tabIndex={0} onClick={back} onKeyPress={back}>
+          <div id="edit" role="button" tabIndex={0} onClick={back} onKeyPress={back}>
               EDIT
           </div>
         </div>
