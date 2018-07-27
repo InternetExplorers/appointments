@@ -2,7 +2,7 @@ import React from 'react';
 import $ from 'jquery';
 import moment from 'moment';
 import LevelOne from './LevelOne.jsx';
-import LevelThree from './LevelThree.jsx';
+import LevelTwo from './LevelTwo.jsx';
 
 const outerShell = {
   width: '300px',
@@ -41,6 +41,7 @@ class Appointment extends React.Component {
   }
 
   componentDidMount() {
+    this.defaultTimes();
     const { businessId } = this.state;
     $.ajax({
       url: `/business/${businessId}/appointments`,
@@ -56,7 +57,6 @@ class Appointment extends React.Component {
           businessZip: dbData[0].zip,
         });
         this.formatTimes(dbData[0].opens, dbData[0].closes);
-        this.defaultTimes();
       },
     });
   }
@@ -71,16 +71,16 @@ class Appointment extends React.Component {
       nextTwoWeeks: twoWeeks,
       selectedDate: defaultDate,
     });
-  };
+  }
 
-  formatTimes (opens, closes) {
+  formatTimes(opens, closes) {
     const mutableOpens = opens;
     const mutableCloses = closes;
     const timesArray = [moment(mutableOpens, 'HH:mm:a').format('LT')];
     for (let j = 0; j < 12; j += 1) {
       const endHour = moment(mutableCloses, 'HH:mm:a');
       const currHour = moment(timesArray[timesArray.length - 1], 'HH:mm:a').add(1, 'h');
-      if (endHour.isBefore(moment('04:00:00', 'HH:mm:a')) && currHour.diff(endHour) <= 79200000) {
+      if (endHour.isBefore(moment('04:00:00', 'HH:mm:a')) && currHour.isBefore(moment('24:00:00', 'HH:mm:a'))) {
         timesArray.push(currHour.format('LT'));
       } else if (currHour.isBefore(endHour.subtract(0.5, 'h'))) {
         timesArray.push(currHour.format('LT'));
@@ -91,8 +91,7 @@ class Appointment extends React.Component {
       timeRange: timesArray,
       selectedTime: defaultTime,
     });
-  };
-
+  }
 
   next() {
     const { view } = this.state;
@@ -164,7 +163,7 @@ class Appointment extends React.Component {
     }
     return (
       <div style={outerShell}>
-        <LevelThree
+        <LevelTwo
           date={selectedDate}
           time={selectedTime}
           name={businessName}
