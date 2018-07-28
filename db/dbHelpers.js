@@ -44,9 +44,33 @@ const getBusinessInfo = (data, callback) => {
   });
 };
 
+const userCount = (callback) => {
+  const queryString = 'SELECT * FROM users';
+  db.query(queryString, (err, success) => {
+    if (err) {
+      callback(err);
+    } else {
+      callback(null, success);
+    }
+  });
+};
+
+const appointmentCount = (callback) => {
+  const queryString = 'SELECT * FROM appointments_log';
+  db.query(queryString, (err, success) => {
+    if (err) {
+      callback(err);
+    } else {
+      callback(null, success);
+    }
+  });
+};
+
 module.exports = {
   checkUser,
   addUser,
   addAppointment,
   getBusinessInfo,
+  userCount,
+  appointmentCount,
 };
