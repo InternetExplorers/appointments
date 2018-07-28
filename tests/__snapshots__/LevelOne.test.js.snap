@@ -1,0 +1,247 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`LevelOne, a child component should render 3 dropdown menus, and a submit button 1`] = `
+<div
+  id="viewOne"
+>
+  <div
+    style={
+      Object {
+        "fontSize": "20px",
+        "fontWeight": "600",
+      }
+    }
+  >
+    Make a Reservation
+  </div>
+  <div>
+    <select
+      id="selectedDate"
+      name="selectedDate"
+      style={
+        Object {
+          "border": "1px solid #ccc",
+          "fontFamily": "Helvetica",
+          "fontSize": "14px",
+          "height": "34px",
+          "marginTop": "10px",
+          "width": "100%",
+        }
+      }
+      value="July 26, 2018"
+    >
+      <option
+        key="July 26, 2018"
+        value="July 26, 2018"
+      >
+        July 26, 2018
+      </option>
+      <option
+        key="July 27, 2018"
+        value="July 27, 2018"
+      >
+        July 27, 2018
+      </option>
+      <option
+        key="July 28, 2018"
+        value="July 28, 2018"
+      >
+        July 28, 2018
+      </option>
+      <option
+        key="July 29, 2018"
+        value="July 29, 2018"
+      >
+        July 29, 2018
+      </option>
+      <option
+        key="July 30, 2018"
+        value="July 30, 2018"
+      >
+        July 30, 2018
+      </option>
+      <option
+        key="July 31, 2018"
+        value="July 31, 2018"
+      >
+        July 31, 2018
+      </option>
+      <option
+        key="August 1, 2018"
+        value="August 1, 2018"
+      >
+        August 1, 2018
+      </option>
+      <option
+        key="August 2, 2018"
+        value="August 2, 2018"
+      >
+        August 2, 2018
+      </option>
+      <option
+        key="August 3, 2018"
+        value="August 3, 2018"
+      >
+        August 3, 2018
+      </option>
+      <option
+        key="August 4, 2018"
+        value="August 4, 2018"
+      >
+        August 4, 2018
+      </option>
+      <option
+        key="August 5, 2018"
+        value="August 5, 2018"
+      >
+        August 5, 2018
+      </option>
+      <option
+        key="August 6, 2018"
+        value="August 6, 2018"
+      >
+        August 6, 2018
+      </option>
+      <option
+        key="August 7, 2018"
+        value="August 7, 2018"
+      >
+        August 7, 2018
+      </option>
+      <option
+        key="August 8, 2018"
+        value="August 8, 2018"
+      >
+        August 8, 2018
+      </option>
+    </select>
+  </div>
+  <div>
+    <select
+      id="selectedTime"
+      name="selectedTime"
+      style={
+        Object {
+          "border": "1px solid #ccc",
+          "fontSize": "14px",
+          "height": "34px",
+          "marginBottom": "10px",
+          "marginRight": "5%",
+          "marginTop": "10px",
+          "width": "47.5%",
+        }
+      }
+      value="9:30 AM"
+    >
+      <option
+        key="9:30 AM"
+        value="9:30 AM"
+      >
+        9:30 AM
+      </option>
+      <option
+        key="10:30 AM"
+        value="10:30 AM"
+      >
+        10:30 AM
+      </option>
+      <option
+        key="11:30 AM"
+        value="11:30 AM"
+      >
+        11:30 AM
+      </option>
+      <option
+        key="12:30 PM"
+        value="12:30 PM"
+      >
+        12:30 PM
+      </option>
+      <option
+        key="1:30 PM"
+        value="1:30 PM"
+      >
+        1:30 PM
+      </option>
+      <option
+        key="2:30 PM"
+        value="2:30 PM"
+      >
+        2:30 PM
+      </option>
+      <option
+        key="3:30 PM"
+        value="3:30 PM"
+      >
+        3:30 PM
+      </option>
+    </select>
+    <select
+      id="guestCount"
+      name="guestCount"
+      style={
+        Object {
+          "border": "1px solid #ccc",
+          "fontSize": "14px",
+          "height": "34px",
+          "marginBottom": "10px",
+          "marginTop": "10px",
+          "width": "47.5%",
+        }
+      }
+      value="2"
+    >
+      <option
+        key="1"
+        value={1}
+      >
+        1
+      </option>
+      <option
+        key="2"
+        value={2}
+      >
+        2
+      </option>
+      <option
+        key="3"
+        value={3}
+      >
+        3
+      </option>
+      <option
+        key="4"
+        value={4}
+      >
+        4
+      </option>
+      <option
+        key="5"
+        value={5}
+      >
+        5
+      </option>
+    </select>
+  </div>
+  <button
+    style={
+      Object {
+        "background": "#3cb52e",
+        "borderColor": "#28781e",
+        "borderRadius": "5px",
+        "boxShadow": "0 1px 1px rgba(0,0,0,0.3)",
+        "color": "white",
+        "fontSize": "12px",
+        "fontWeight": "600",
+        "height": "34px",
+        "lineHeight": "1.5em",
+        "padding": "5px 8px",
+        "width": "100%",
+      }
+    }
+    type="button"
+  >
+    Find a Table
+  </button>
+</div>
+`;
