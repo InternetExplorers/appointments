@@ -13,4 +13,5 @@ module.exports = {
     '!**/bundle**',
     '!**/sorter**',
   ],
+  testURL: 'http://localhost:3003/',
 };
