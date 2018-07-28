@@ -131,17 +131,3 @@ describe('Appointment, parent component', () => {
     expect(wrapper.instance().forceUpdate).toHaveBeenCalledTimes(1);
   });
 });
-
-
-// it('makeAppointment should make as forceUpdate', (done) => {
-//   wrapper.instance().forceUpdate = jest.fn();
-//   wrapper.instance().makeAppointment();
-//   done();
-//   expect(wrapper.instance().forceUpdate).toHaveBeenCalledTimes(1);
-// });
-
-
-// it('stats with a guest count that equals a string of 2', () => {
-//   const countState = wrapper.find('div#guestCount').text();
-//   expect(countState).toEqual('2');
-// });

@@ -66,7 +66,6 @@ enzyme.configure({ adapter: new Adapter() });
     );
   });
 
-
   it('should render one correct css wrapper', () => {
     expect(wrapper.find('div#viewOne').exists()).toEqual(true);
   });
@@ -78,7 +77,3 @@ enzyme.configure({ adapter: new Adapter() });
     expect(wrapper.find('button').exists()).toEqual(true);
   });
 });
-//
-//
-// 'should calculate a numbered range for guests'
-// 'max range should be less than guest max'

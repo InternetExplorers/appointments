@@ -29,7 +29,6 @@ describe('LevelTwo, a child component to Appointment', () => {
         back={(() => { null })()}
       />
     );
-
     expect(toJson(levelTwoComponent)).toMatchSnapshot();
   });
 

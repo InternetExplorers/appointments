@@ -124,7 +124,6 @@ describe('DB helper functions', () => {
       startCount = succ.length;
       helper.addAppointment(appointmentSample, addAppointmentCB);
     };
-    // helper.addAppointment(appointmentSample);
 
     helper.appointmentCount(initialCountCB);
   });
