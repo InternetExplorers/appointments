@@ -2,12 +2,36 @@ import Adapter from 'enzyme-adapter-react-16';
 import { shallow } from 'enzyme';
 import * as enzyme from 'enzyme';
 import React from 'react';
+import toJson from 'enzyme-to-json';
 import LevelTwo from '../client/components/LevelTwo.jsx';
 import notValid from '../client/components/helperFunctions/notValid.jsx'
 
 enzyme.configure({ adapter: new Adapter() });
 
 describe('LevelTwo, a child component to Appointment', () => {
+  it('should render 4 input fields with correct titles', () => {
+    const levelTwoComponent = shallow(
+      <LevelTwo
+        date={"July 26, 2018"}
+        time={"10:30 AM"}
+        name={"Cakesons"}
+        address={"123"}
+        city={"businessCity"}
+        state={"businessState"}
+        zip={"businessZip"}
+        change={(() => { null })()}
+        book={(() => { null })()}
+        first={"firstName"}
+        last={"lastName"}
+        email={"email"}
+        phone={"phone"}
+        count={"1"}
+        back={(() => { null })()}
+      />
+    );
+
+    expect(toJson(levelTwoComponent)).toMatchSnapshot();
+  });
 
   it('should import a notValid function', () => {
     const type = typeof notValid;
