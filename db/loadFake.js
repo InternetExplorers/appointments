@@ -1,12 +1,11 @@
 const faker = require('faker');
 const db = require('./index');
 
-const openingTimes = ['06', '07', '08', '09', '10', '11', '12', '13', '14', '15', '16', '17', '18'];
-const hoursOpen = [6, 7, 8, 9, 10, 11, 12];
-const afterHours = ['01', '02'];
-const minutes = ['00', '30'];
-
 const generateFakeBusinessData = () => {
+  const openingTimes = ['06', '07', '08', '09', '10', '11', '12', '13', '14', '15', '16', '17', '18'];
+  const hoursOpen = [6, 7, 8, 9, 10, 11, 12];
+  const afterHours = ['01', '02'];
+  const minutes = ['00', '30'];
   const getRandom = max => Math.floor(Math.random() * Math.floor(max));
 
   const getClosingHours = (string) => {
@@ -36,7 +35,7 @@ const generateFakeBusinessData = () => {
     const closingHour = getClosingHours(openTimes);
     const closingMinutes = getClosingMinutes(closingHour);
     const closeTimes = `${closingHour}:${closingMinutes}:00`;
-    const guestMax = getRandom(50);
+    const guestMax = 5 + getRandom(45);
     const sqlString = 'INSERT INTO businesses (name, address, city, state, zip, phone, opens, closes, guest_max) VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?)';
     const data = [name, address, city, state, zip, phone, openTimes, closeTimes, guestMax];
 
@@ -52,3 +51,5 @@ const generateFakeBusinessData = () => {
 };
 
 generateFakeBusinessData();
+
+module.exports = generateFakeBusinessData;
