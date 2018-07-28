@@ -29,12 +29,18 @@ jobs:
           - v1-dependencies-
 
       - run: yarn install
+      - run: sudo apt install -y mysql-client
 
       - save_cache:
           paths:
             - node_modules
           key: v1-dependencies-{{ checksum "package.json" }}
 
+      - run: mysql -h 127.0.0.1 -u root < ./database/schema.sql
+
+       - run:
+          command: node ./server/server.js
+          background: true
 
       # run tests!
       - run: yarn test
