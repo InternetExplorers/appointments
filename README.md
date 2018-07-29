@@ -52,7 +52,7 @@ Or:
 This is achieved by calling on node to execute the function in db/loadFake.js,
 by typing:
 
-  node db/loadFakeData.js
+  - node db/loadFakeData.js
 
 Or:
 
