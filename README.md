@@ -2,12 +2,7 @@
 
 Imitation of a Yelp's find table component. This component takes the date,
 time, business, and the party size for your appointment and stores in a mysql
-table. It also registers you as a user in a separate table.
-
-### Table of Contents:
- - Starting database and loading fake data
- - Starting the server and compiler
- - Testing
+table. It also registers users in a separate table.
 
 ### Starting DB and Loading Fake Data
 
