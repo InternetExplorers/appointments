@@ -9,7 +9,7 @@ Table of Contents:
  --Starting the server and compiler
  --Testing
 
-##Starting DB and Loading Fake Data
+## Starting DB and Loading Fake Data
 
 Terminal shortcuts:
   npm run makeDB--- this writes the DB
@@ -64,7 +64,7 @@ Or:
   npm run loadData;
 
 
-##Starting the server and compiler
+## Starting the server and compiler
 
 To run the server type the following into terminal:
 
@@ -79,7 +79,7 @@ To run the compiler:
 To review these scripts, or edit them, please check the package.json section
 'scripts'.
 
-##Test
+## Tests
 
 It's as simple as:
 
