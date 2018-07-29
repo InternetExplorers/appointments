@@ -4,15 +4,15 @@ const db = require('./index');
 const generateFakeBusinessData = () => {
   const openingTimes = ['06', '07', '08', '09', '10', '11', '12', '13', '14', '15', '16', '17', '18'];
   const hoursOpen = [6, 7, 8, 9, 10, 11, 12];
-  const afterHours = ['01', '02'];
+  const closingHours = ['01', '02'];
   const minutes = ['00', '30'];
-  const getRandom = max => Math.floor(Math.random() * Math.floor(max));
+  const getRandom = max => Math.floor(Math.random() * max);
 
   const getClosingHours = (string) => {
     const open = Number(string.slice(0, 2));
     const hours = hoursOpen[getRandom(hoursOpen.length - 1)];
     if (hours + open > 24) {
-      return afterHours[getRandom(2)];
+      return closingHours[getRandom(2)];
     }
     return JSON.stringify(hours + open);
   };
