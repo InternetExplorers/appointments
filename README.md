@@ -56,19 +56,19 @@ by typing:
 
 Or:
 
-  npm run loadData;
+  - npm run loadData;
 
 
 ### Starting the server and compiler
 
 To run the server type the following into terminal:
 
-  npm start
+  - npm start
 
 
 To run the compiler:
 
-  npm run react
+  - npm run react
 
 
 To review these scripts, or edit them, please check the package.json section
@@ -78,9 +78,9 @@ To review these scripts, or edit them, please check the package.json section
 
 It's as simple as:
 
-  npm test
+  - npm test
 
 If you're in writing tests, you can use the following command so your tests
 run every time they are altered:
 
-  npm run testing
+  - npm run testing
