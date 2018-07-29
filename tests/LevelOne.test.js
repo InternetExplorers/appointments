@@ -57,8 +57,8 @@ enzyme.configure({ adapter: new Adapter() });
         nextTwoWeeks={["July 26, 2018", "July 27, 2018", "July 28, 2018", "July 29, 2018", "July 30, 2018", "July 31, 2018", "August 1, 2018", "August 2, 2018", "August 3, 2018", "August 4, 2018", "August 5, 2018", "August 6, 2018", "August 7, 2018", "August 8, 2018"]}
         times={["9:30 AM", "10:30 AM", "11:30 AM", "12:30 PM", "1:30 PM", "2:30 PM", "3:30 PM"]}
         max={5}
-        change={(() => { console.log('dummy') })()}
-        next={(() => { console.log('dummy') })()}
+        change={(() => { null })()}
+        next={(() => { null })()}
         count={'2'}
         date={'July 26, 2018'}
         time={'9:30 AM'}
