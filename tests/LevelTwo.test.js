@@ -60,7 +60,7 @@ describe('LevelTwo, a child component to Appointment', () => {
         back={spyFunction}
       />
     );
-    wrapper.find('div#edit').simulate('click');
+    wrapper.find('#editSummary').simulate('click');
     expect(spyFunction).toHaveBeenCalled();
   });
 
@@ -85,10 +85,10 @@ describe('LevelTwo, a child component to Appointment', () => {
         back={(() => { null })()}
       />
     );
-    wrapper.find('input#inputFirstName').simulate('change');
-    wrapper.find('input#inputLastName').simulate('change');
-    wrapper.find('input#inputEmail').simulate('change');
-    wrapper.find('input#inputPhone').simulate('change');
+    wrapper.find('#inputFirstName').simulate('change');
+    wrapper.find('#inputLastName').simulate('change');
+    wrapper.find('#inputEmail').simulate('change');
+    wrapper.find('#inputPhone').simulate('change');
 
     expect(spyFunction).toHaveBeenCalledTimes(4);
   });
@@ -116,7 +116,7 @@ describe('LevelTwo, a child component to Appointment', () => {
         back={(() => { null })()}
       />
     );
-    wrapper.find('button').simulate('click');
+    wrapper.find('#submitValid').simulate('click');
     expect(spyFunction).toHaveBeenCalled();
   })
 
@@ -141,7 +141,7 @@ describe('LevelTwo, a child component to Appointment', () => {
         back={(() => { null })()}
       />
     );
-    wrapper.find('button').simulate('click');
+    wrapper.find('#submitInvalid').simulate('click');
     expect(spyFunction).not.toHaveBeenCalled();
   });
 
@@ -172,16 +172,15 @@ describe('LevelTwo, a child component to Appointment', () => {
     expect(wrapper.find('form').exists()).toEqual(true);
   });
 
-  it('should render 4 input fields an edit and a submit button', () => {
-    expect(wrapper.find('input#inputFirstName').exists()).toEqual(true);
-    expect(wrapper.find('input#inputLastName').exists()).toEqual(true);
-    expect(wrapper.find('input#inputEmail').exists()).toEqual(true);
-    expect(wrapper.find('input#inputPhone').exists()).toEqual(true);
-    expect(wrapper.find('button').exists()).toEqual(true);
+  it('should render 4 input fields an edit', () => {
+    expect(wrapper.find('#inputFirstName').exists()).toEqual(true);
+    expect(wrapper.find('#inputLastName').exists()).toEqual(true);
+    expect(wrapper.find('#inputEmail').exists()).toEqual(true);
+    expect(wrapper.find('#inputPhone').exists()).toEqual(true);
   });
 
   it('should say person, if reservation is for 1, people if otherwise', () => {
-    expect(wrapper.find('div#guestCountSummary').text()).toEqual('1 Person');
+    expect(wrapper.find('div#countCorrect').text()).toEqual('1 Person');
 
     const numberOfPeople = '8';
     wrapper = shallow(
@@ -203,6 +202,6 @@ describe('LevelTwo, a child component to Appointment', () => {
         back={(() => { null })()}
       />
     );
-    expect(wrapper.find('div#guestCountSummary').text()).toEqual(`${numberOfPeople} People`);
+    expect(wrapper.find('div#countCorrect').text()).toEqual(`${numberOfPeople} People`);
   });
 });
