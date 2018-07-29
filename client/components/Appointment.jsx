@@ -2,7 +2,7 @@ import React from 'react';
 import $ from 'jquery';
 import moment from 'moment';
 import LevelOne from './LevelOne.jsx';
-import LevelThree from './LevelThree.jsx';
+import LevelTwo from './LevelTwo.jsx';
 
 const outerShell = {
   width: '300px',
@@ -15,8 +15,12 @@ const outerShell = {
 class Appointment extends React.Component {
   constructor(props) {
     super(props);
+    this.next = this.next.bind(this);
+    this.back = this.back.bind(this);
+    this.handleChange = this.handleChange.bind(this);
+    this.makeAppointment = this.makeAppointment.bind(this);
     this.state = {
-      businessId: Math.floor(Math.random() * Math.floor(100)),
+      businessId: (Math.floor(Math.random() * 99) + 1),
       businessName: '',
       businessMax: 0,
       businessAddress: '',
@@ -34,46 +38,10 @@ class Appointment extends React.Component {
       nextTwoWeeks: [],
       view: 1,
     };
-    this.next = this.next.bind(this);
-    this.back = this.back.bind(this);
-    this.handleChange = this.handleChange.bind(this);
-    this.makeAppointment = this.makeAppointment.bind(this);
   }
 
   componentDidMount() {
-    const defaultTimes = () => {
-      const twoWeeks = [];
-      for (let i = 0; i < 14; i += 1) {
-        twoWeeks.push(moment().add(i, 'days').format('LL'));
-      }
-      const defaultDate = twoWeeks[0];
-      this.setState({
-        nextTwoWeeks: twoWeeks,
-        selectedDate: defaultDate,
-      });
-    };
-    defaultTimes();
-
-    const formatTimes = (opens, closes) => {
-      const mutableOpens = opens;
-      const mutableCloses = closes;
-      const timesArray = [moment(mutableOpens, 'HH:mm:a').format('LT')];
-      for (let j = 0; j < 12; j += 1) {
-        const endHour = moment(mutableCloses, 'HH:mm:a');
-        const currHour = moment(timesArray[timesArray.length - 1], 'HH:mm:a').add(1, 'h');
-        if (endHour.isBefore(moment('04:00:00', 'HH:mm:a')) && currHour.diff(endHour) <= 79200000) {
-          timesArray.push(currHour.format('LT'));
-        } else if (currHour.isBefore(endHour.subtract(0.5, 'h'))) {
-          timesArray.push(currHour.format('LT'));
-        }
-      }
-      const defaultTime = timesArray[0];
-      this.setState({
-        timeRange: timesArray,
-        selectedTime: defaultTime,
-      });
-    };
-
+    this.defaultTimes();
     const { businessId } = this.state;
     $.ajax({
       url: `/business/${businessId}/appointments`,
@@ -88,8 +56,40 @@ class Appointment extends React.Component {
           businessState: dbData[0].state,
           businessZip: dbData[0].zip,
         });
-        formatTimes(dbData[0].opens, dbData[0].closes);
+        this.formatTimes(dbData[0].opens, dbData[0].closes);
       },
+    });
+  }
+
+  defaultTimes() {
+    const twoWeeks = [];
+    for (let i = 0; i < 14; i += 1) {
+      twoWeeks.push(moment().add(i, 'days').format('LL'));
+    }
+    const defaultDate = twoWeeks[0];
+    this.setState({
+      nextTwoWeeks: twoWeeks,
+      selectedDate: defaultDate,
+    });
+  }
+
+  formatTimes(opens, closes) {
+    const mutableOpens = opens;
+    const mutableCloses = closes;
+    const timesArray = [moment(mutableOpens, 'HH:mm:a').format('LT')];
+    for (let j = 0; j < 12; j += 1) {
+      const endHour = moment(mutableCloses, 'HH:mm:a');
+      const currHour = moment(timesArray[timesArray.length - 1], 'HH:mm:a').add(1, 'h');
+      if (endHour.isBefore(moment('04:00:00', 'HH:mm:a')) && currHour.isBefore(moment('24:00:00', 'HH:mm:a'))) {
+        timesArray.push(currHour.format('LT'));
+      } else if (currHour.isBefore(endHour.subtract(0.5, 'h'))) {
+        timesArray.push(currHour.format('LT'));
+      }
+    }
+    const defaultTime = timesArray[0];
+    this.setState({
+      timeRange: timesArray,
+      selectedTime: defaultTime,
     });
   }
 
@@ -163,7 +163,7 @@ class Appointment extends React.Component {
     }
     return (
       <div style={outerShell}>
-        <LevelThree
+        <LevelTwo
           date={selectedDate}
           time={selectedTime}
           name={businessName}

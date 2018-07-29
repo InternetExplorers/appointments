@@ -6,7 +6,10 @@
   "scripts": {
     "test": "jest",
     "start": "nodemon server/server.js",
-    "react": "webpack -d --watch"
+    "react": "webpack -d --watch",
+    "makeDB": "mysql -u root < database/schema.sql",
+    "loadData": "node db/loadFake.js",
+    "testing": "jest --watch *.jsx --coverage"
   },
   "repository": {
     "type": "git",
@@ -21,15 +24,21 @@
   "devDependencies": {
     "babel-cli": "^6.26.0",
     "babel-core": "^6.26.3",
+    "babel-jest": "^23.4.0",
     "babel-loader": "^7.1.5",
     "babel-preset-env": "^1.7.0",
     "babel-preset-react": "^6.24.1",
+    "enzyme": "^3.3.0",
+    "enzyme-adapter-react-16": "^1.1.1",
+    "enzyme-to-json": "^3.3.4",
     "eslint": "^4.19.1",
     "eslint-config-airbnb": "^17.0.0",
     "eslint-plugin-import": "^2.13.0",
     "eslint-plugin-jsx-a11y": "^6.1.1",
     "eslint-plugin-react": "^7.10.0",
     "jest": "^23.4.1",
+    "react-test-renderer": "^16.4.1",
+    "request": "^2.87.0",
     "webpack": "^4.16.1",
     "webpack-cli": "^3.1.0"
   },

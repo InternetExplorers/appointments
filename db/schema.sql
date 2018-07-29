@@ -38,3 +38,6 @@ CREATE TABLE appointments_log (
   FOREIGN KEY(business_id) REFERENCES businesses(id),
   FOREIGN KEY(customer_id) REFERENCES users(id)
 );
+
+INSERT INTO businesses (name, address, city, state, zip, phone, opens, closes, guest_max) VALUES ("Test business", "123 Test", "Testville", "CA", "12345", "510-918-test", "08:00:00", "3:00:00", 5);
+INSERT INTO users (first_name, last_name, phone, email) VALUES ("Test Jordan", "Test Cake", "510-918-test", "test@tester");

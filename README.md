@@ -1,15 +1,22 @@
-# appointments
+# Appointments
 
-Imitation of a Yelp's find table component. This component takes the date the,
-time, and the part size for your appointment and stores in a mysql database.
+Imitation of a Yelp's find table component. This component takes the date,
+time, business, and the party size for your appointment and stores in a mysql
+table. It also registers you as a user in a separate table.
 
 Table of Contents:
  --Starting database and loading fake data
  --Starting the server and compiler
  --Testing
 
-#Starting DB and Loading Fake Data
+##Starting DB and Loading Fake Data
 
+Terminal shortcuts:
+  npm run makeDB--- this writes the DB
+  npm run loadData--- this calls the load data function
+  npm test will also load the mock data onto your DB for testing purposes.
+
+More detailed:
 This project comes with fake data intended to simulate business details which
 can be loaded into the project using the db/loadFake.js file. To initiate
 the database and load the data, read below.
@@ -17,7 +24,6 @@ the database and load the data, read below.
   -- schema.sql should be run once to create db, tables and structures in mysql
   -- loadFake.js should be run once to populate fake data in mysql
   -- index.js connects the app to the database
-  -- dbHelpers.js contains functions that will be used on the database
 
 
 GENERAL MYSQL INFO:
@@ -47,8 +53,18 @@ Or:
 
   mysql -u root -p ****** < schema.sql;
 
+LOADING DATA
+This is achieved by calling on node to execute the function in db/loadFake.js,
+by typing:
 
-#Starting the server and compiler
+  node db/loadFakeData.js
+
+Or:
+
+  npm run loadData;
+
+
+##Starting the server and compiler
 
 To run the server type the following into terminal:
 
@@ -61,4 +77,15 @@ To run the compiler:
 
 
 To review these scripts, or edit them, please check the package.json section
-'scripts'.  
+'scripts'.
+
+##Test
+
+It's as simple as:
+
+  npm test
+
+If you're in writing tests, you can use the following command so your tests
+run every time they are altered:
+
+  npm run testing
