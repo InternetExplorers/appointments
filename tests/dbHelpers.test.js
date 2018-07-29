@@ -56,7 +56,7 @@ describe('DB helper functions', () => {
   it('should increase the DB of Users by one when addUser is called', (done) => {
     let initialCount;
     let finalCount;
-    const randomEmailGenerator = () => `test_random${Math.floor(Math.random() * Math.floor(1000000))}@${Math.floor(Math.random() * Math.floor(1000000))}`;
+    const randomEmailGenerator = () => `test_random${Math.floor(Math.random() * 1000000)}@${Math.floor(Math.random() * 1000000)}`;
 
     const afterUserCountCB = (error, success) => {
       finalCount = success.length;
@@ -105,7 +105,7 @@ describe('DB helper functions', () => {
     expect(type).toEqual('function');
   });
 
-  it('add appointment should increment the appointment_log database by one', (done) => {
+  it('should have a helper method, add appointment, which increments the appointment_log database by one', (done) => {
     let startCount;
     let endCount;
     const finalCountCB = (error, success) => {
@@ -133,7 +133,7 @@ describe('DB helper functions', () => {
     expect(type).toEqual('function');
   });
 
-  it('should yield a businesses information', (done) => {
+  it('should yield a set of business information', (done) => {
     const cb = (err, success) => {
       const returnObject = success[0];
       expect(returnObject.id).toBeGreaterThan(0);
