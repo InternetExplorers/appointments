@@ -3,278 +3,113 @@
 exports[`LevelTwo, a child component to Appointment should render 4 input fields with correct titles 1`] = `
 <form>
   <div>
-    <div
-      style={
-        Object {
-          "color": "#d90007",
-          "fontSize": "20px",
-          "fontWeight": "600",
-        }
-      }
-    >
+    <styled.h1>
       Confirm Reservation
-    </div>
-    <div>
-      <div
-        style={
-          Object {
-            "fontSize": "12px",
-            "marginTop": "10px",
-            "width": "30%",
-          }
-        }
-      >
-        First Name*
-      </div>
-      <div
-        style={
-          Object {
-            "width": "100%",
-          }
-        }
-      >
-        <input
-          id="inputFirstName"
-          name="firstName"
-          style={
-            Object {
-              "width": "100%",
-            }
-          }
-          value="firstName"
-        />
-      </div>
-    </div>
-    <div>
-      <div
-        style={
-          Object {
-            "fontSize": "12px",
-            "marginTop": "10px",
-            "width": "30%",
-          }
-        }
-      >
-        Last Name*
-      </div>
-      <div
-        style={
-          Object {
-            "width": "100%",
-          }
-        }
-      >
-        <input
-          id="inputLastName"
-          name="lastName"
-          style={
-            Object {
-              "width": "100%",
-            }
-          }
-          value="lastName"
-        />
-      </div>
-    </div>
-    <div>
-      <div
-        style={
-          Object {
-            "fontSize": "12px",
-            "marginTop": "10px",
-            "width": "30%",
-          }
-        }
-      >
-        Email*
-      </div>
-      <div
-        style={
-          Object {
-            "width": "100%",
-          }
-        }
-      >
-        <input
-          id="inputEmail"
-          name="email"
-          style={
-            Object {
-              "width": "100%",
-            }
-          }
-          value="email"
-        />
-      </div>
-    </div>
-    <div>
-      <div
-        style={
-          Object {
-            "fontSize": "12px",
-            "marginTop": "10px",
-            "width": "30%",
-          }
-        }
-      >
-        Mobile Number*
-      </div>
-      <div
-        style={
-          Object {
-            "width": "100%",
-          }
-        }
-      >
-        <input
-          id="inputPhone"
-          name="phone"
-          style={
-            Object {
-              "width": "100%",
-            }
-          }
-          value="phone"
-        />
-      </div>
-    </div>
-    <div
-      style={
-        Object {
-          "fontSize": "12px",
-          "marginTop": "10px",
-          "width": "30%",
-        }
-      }
-    >
+    </styled.h1>
+    <styled.div>
+      First Name*
+      <styled.input
+        id="inputFirstName"
+        name="firstName"
+        value="firstName"
+      />
+    </styled.div>
+    <styled.div>
+      Last Name*
+      <styled.input
+        id="inputLastName"
+        name="lastName"
+        value="lastName"
+      />
+    </styled.div>
+    <styled.div>
+      Email*
+      <styled.input
+        id="inputEmail"
+        name="email"
+        value="email"
+      />
+    </styled.div>
+    <styled.div>
+      Mobile Number*
+      <styled.input
+        id="inputPhone"
+        name="phone"
+        value="phone"
+      />
+    </styled.div>
+    <styled.div>
       *required field
-    </div>
+    </styled.div>
   </div>
-  <div
-    style={
-      Object {
-        "background": "lightGrey",
-        "borderColor": "grey",
-        "borderRadius": "5px",
-        "display": "grid",
-        "fontSize": "12px",
-        "gridAutoRows": "minmax(40px, auto)",
-        "gridTemplateColumns": "repeat(4, 1fr)",
-        "marginBottom": "20px",
-        "marginTop": "20px",
-        "padding": "5%",
-        "paddingTop": "10%",
-        "width": "90%",
-      }
-    }
-  >
-    <div
-      syle={
-        Object {
-          "gridColumn": "1 / 5",
-          "gridRow": "1",
-        }
-      }
+  <styled.div>
+    <styled.div
+      column="1 / 5"
+      id="whenSummaryKey"
+      row="1"
     >
       When:
-    </div>
-    <div
-      style={
-        Object {
-          "gridColumn": "2 / 5",
-          "gridRow": "1",
-        }
-      }
+    </styled.div>
+    <styled.div
+      column="2 / 5"
+      id="whenSummaryPropert"
+      row="1"
     >
       July 26, 2018
        at 
       10:30 AM
-    </div>
-    <div
-      style={
-        Object {
-          "gridColumn": "1 / 5",
-          "gridRow": "3",
-        }
-      }
+    </styled.div>
+    <styled.div
+      column="1 / 5"
+      id="guestCountSummaryKey"
+      row="2"
+    >
+      Party:
+    </styled.div>
+    <styled.div
+      column="2"
+      id="guestCountSummaryProperty"
+      row="2"
+    >
+      <div
+        id="countCorrect"
+      >
+        1
+         
+        Person
+      </div>
+    </styled.div>
+    <styled.div
+      column="1 / 5"
+      id="placeSummaryKey"
+      row="3"
     >
       Place:
-    </div>
-    <div
-      style={
-        Object {
-          "gridColumn": "2 / 5",
-          "gridRow": "3/5",
-        }
-      }
+    </styled.div>
+    <styled.div
+      column="2 / 5"
+      id="placeSummaryProperty"
+      row="3 / 5"
     >
       Cakesons
       <br />
       123
       <br />
       businessCity businessState, businessZip
-    </div>
-    <div
-      syle={
-        Object {
-          "gridColumn": "1 / 5",
-          "gridRow": "2",
-        }
-      }
+    </styled.div>
+    <styled.div
+      id="editSummary"
+      role="button"
+      tabIndex={0}
     >
-      Party:
-    </div>
-    <div
-      id="guestCountSummary"
-      style={
-        Object {
-          "gridColumn": "2",
-          "gridRow": "2",
-        }
-      }
-    >
-      1
-       
-      Person
-    </div>
-    <div
-      style={
-        Object {
-          "color": "#0073bb",
-          "gridColumn": "1 / 5",
-          "gridRow": "4",
-          "paddingTop": "15px",
-        }
-      }
-    >
-      <div
-        id="edit"
-        role="button"
-        tabIndex={0}
-      >
-        EDIT
-      </div>
-    </div>
-  </div>
-  <button
-    style={
-      Object {
-        "background": "#d90007",
-        "borderColor": "#8d0005",
-        "borderRadius": "5px",
-        "boxShadow": "0 1px 1px rgba(0,0,0,0.3)",
-        "color": "white",
-        "fontSize": "12px",
-        "fontWeight": "600",
-        "height": "34px",
-        "lineHeight": "1.5em",
-        "padding": "5px 8px",
-        "width": "100%",
-      }
-    }
+      EDIT
+    </styled.div>
+  </styled.div>
+  <styled.button
+    id="submitValid"
     type="submit"
   >
     Book Appointment
-  </button>
+  </styled.button>
 </form>
 `;
