@@ -193,16 +193,16 @@ describe('LevelTwo, a child component to Appointment', () => {
         city={"businessCity"}
         state={"businessState"}
         zip={"businessZip"}
-        change={(() => { console.log('dummy') })()}
-        book={(() => { console.log('dummy') })()}
+        change={(() => { null })()}
+        book={(() => { null })()}
         first={"firstName"}
         last={"lastName"}
         email={"email"}
         phone={"phone"}
         count={numberOfPeople}
-        back={(() => { console.log('dummy') })()}
+        back={(() => { null })()}
       />
     );
-    expect(wrapper.find('div#guestCountSummary').text()).toEqual(numberOfPeople+ ' People');
+    expect(wrapper.find('div#guestCountSummary').text()).toEqual(`${numberOfPeople} People`);
   });
 });
