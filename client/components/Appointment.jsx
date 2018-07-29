@@ -20,7 +20,7 @@ class Appointment extends React.Component {
     this.handleChange = this.handleChange.bind(this);
     this.makeAppointment = this.makeAppointment.bind(this);
     this.state = {
-      businessId: Math.floor(Math.random() * Math.floor(100)),
+      businessId: (Math.floor(Math.random() * 99) + 1),
       businessName: '',
       businessMax: 0,
       businessAddress: '',
