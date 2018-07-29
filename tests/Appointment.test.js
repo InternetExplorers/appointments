@@ -102,7 +102,7 @@ describe('Appointment, parent component', () => {
     expect(wrapper.state().view).toEqual(expected);
   });
 
-  it('should have a back method, the decriments state.view by 1', (done) => {
+  it('should have a back method, the decrements state.view by 1', (done) => {
     const expected = wrapper.state().view - 1;
     wrapper.instance().back();
     done();
