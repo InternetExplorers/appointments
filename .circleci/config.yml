@@ -41,8 +41,5 @@ jobs:
 
       - run: mysql -h 127.0.0.1 -u root < ./db/schema.sql
 
-      - run:
-          command: node ./server/server.js
-          background: true
 
       - run: yarn test
