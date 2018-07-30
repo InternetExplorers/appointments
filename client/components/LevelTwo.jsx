@@ -1,92 +1,73 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import styled from 'styled-components';
 import notValid from './helperFunctions/notValid.jsx';
 
-const titleStyle = {
-  fontSize: '20px',
-  fontWeight: '600',
-  color: '#d90007',
-};
+const Title = styled.h1`
+  font-size: 20px;
+  font-weight: 600;
+  color: #d90007;
+`;
 
-const leftCol = {
-  width: '30%',
-  marginTop: '10px',
-  fontSize: '12px',
-};
+const FormCategory = styled.div`
+  width: 100%;
+  margin-top: 10px;
+  font-size: 12.5px;
+`;
 
-const rightCol = {
-  width: '100%',
-};
+const InputStyle = styled.input`
+  width: 100%;
+  font-size: 12.5px;
+  padding: 6px 10px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+`;
 
-const inputStyle = {
-  width: '100%',
-};
+const Summary = styled.div`
+  margin-top: 20px;
+  margin-bottom: 20px;
+  width: 90%;
+  padding: 5%;
+  padding-top: 10%;
+  background: #f5f5f5;
+  border: 1px solid #e6e6e6;
+  border-radius: 4px;
+  font-size: 14px;
+  font-family: Helvetica Neue,Helvetica,Arial,sans-serif;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-auto-rows: minmax(40px, auto);
+`;
 
-const summary = {
-  marginTop: '20px',
-  marginBottom: '20px',
-  width: '90%',
-  padding: '5%',
-  paddingTop: '10%',
-  background: 'lightGrey',
-  borderRadius: '5px',
-  fontSize: '12px',
-  borderColor: 'grey',
-  display: 'grid',
-  gridTemplateColumns: 'repeat(4, 1fr)',
-  gridAutoRows: 'minmax(40px, auto)',
-};
+const SummaryGrid = styled.div`
+  grid-column: ${props => props.column};
+  grid-row: ${props => props.row};
+`;
 
-const timeStyleA = {
-  gridColumn: '1 / 5',
-  gridRow: '1',
-};
+const Edit = styled.div`
+  grid-column: 1 / 5;
+  grid-row: 4;
+  padding-top: 15px;
+  color: #0073bb;
+  width: 0;
+`;
 
-const timeStyleB = {
-  gridColumn: '2 / 5',
-  gridRow: '1',
-};
-
-const placeStyleA = {
-  gridColumn: '1 / 5',
-  gridRow: '3',
-};
-
-const placeStyleB = {
-  gridColumn: '2 / 5',
-  gridRow: '3/5',
-};
-
-const guestStlyeA = {
-  gridColumn: '1 / 5',
-  gridRow: '2',
-};
-
-const guestStlyeB = {
-  gridColumn: '2',
-  gridRow: '2',
-};
-
-const editStyle = {
-  gridColumn: '1 / 5',
-  gridRow: '4',
-  paddingTop: '15px',
-  color: '#0073bb',
-};
-
-const findTableButton = {
-  width: '100%',
-  color: 'white',
-  background: '#d90007',
-  borderColor: '#8d0005',
-  boxShadow: '0 1px 1px rgba(0,0,0,0.3)',
-  borderRadius: '5px',
-  padding: '5px 8px',
-  fontSize: '12px',
-  fontWeight: '600',
-  lineHeight: '1.5em',
-  height: '34px',
-};
+const Button = styled.button`
+  width: 100%;
+  color: white;
+  background: #d90007;
+  border-color: #8d0005;
+  box-shadow: 0 1px 1px rgba(0,0,0,0.3);
+  border-radius: 5px;
+  padding: 5px 8px;
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 1.5em;
+  height: 34px;
+`;
 
 const LevelTwo = (props) => {
   const {
@@ -104,88 +85,72 @@ const LevelTwo = (props) => {
   return (
     <form>
       <div>
-        <div style={titleStyle}>
+        <Title>
           Confirm Reservation
-        </div>
-        <div>
-          <div style={leftCol}>
-            First Name*
-          </div>
-          <div style={rightCol}>
-            <input id="inputFirstName" onChange={change} name="firstName" value={first} style={inputStyle} />
-          </div>
-        </div>
-        <div>
-          <div style={leftCol}>
-            Last Name*
-          </div>
-          <div style={rightCol}>
-            <input id="inputLastName" onChange={change} name="lastName" value={last} style={inputStyle} />
-          </div>
-        </div>
-        <div>
-          <div style={leftCol}>
-            Email*
-          </div>
-          <div style={rightCol}>
-            <input id="inputEmail" onChange={change} name="email" value={email} style={inputStyle} />
-          </div>
-        </div>
-        <div>
-          <div style={leftCol}>
-            Mobile Number*
-          </div>
-          <div style={rightCol}>
-            <input id="inputPhone" onChange={change} name="phone" value={phone} style={inputStyle} />
-          </div>
-        </div>
-        <div style={leftCol}>
+        </Title>
+        <FormCategory>
+          First Name*
+          <InputStyle id="inputFirstName" onChange={change} name="firstName" value={first} />
+        </FormCategory>
+        <FormCategory>
+          Last Name*
+          <InputStyle id="inputLastName" onChange={change} name="lastName" value={last} />
+        </FormCategory>
+        <FormCategory>
+          Email*
+          <InputStyle id="inputEmail" onChange={change} name="email" value={email} />
+        </FormCategory>
+        <FormCategory>
+          Mobile Number*
+          <InputStyle id="inputPhone" onChange={change} name="phone" value={phone} />
+        </FormCategory>
+        <FormCategory>
           *required field
-        </div>
+        </FormCategory>
       </div>
-      <div style={summary}>
-        <div syle={timeStyleA}>
+      <Summary>
+        <SummaryGrid id="whenSummaryKey" column={'1 / 5'} row={'1'}>
           When:
-        </div>
-        <div style={timeStyleB}>
+        </SummaryGrid>
+        <SummaryGrid id="whenSummaryPropert" column={'2 / 5'} row={'1'}>
           {date}
           {' at '}
           {time}
-        </div>
-        <div style={placeStyleA}>
+        </SummaryGrid>
+        <SummaryGrid id="guestCountSummaryKey" column={'1 / 5'} row={'2'}>
+          Party:
+        </SummaryGrid>
+        <SummaryGrid id="guestCountSummaryProperty" column={'2'} row={'2'}>
+          <div id="countCorrect">
+            {count}
+            {' '}
+            {count === '1' ? 'Person' : 'People'}
+          </div>
+        </SummaryGrid>
+        <SummaryGrid id="placeSummaryKey" column={'1 / 5'} row={'3'}>
           Place:
-        </div>
-        <div style={placeStyleB}>
+        </SummaryGrid>
+        <SummaryGrid id="placeSummaryProperty" column={'2 / 5'} row={'3 / 5'}>
           {name}
           <br />
           {address}
           <br />
           {addressString}
-        </div>
-        <div syle={guestStlyeA}>
-          Party:
-        </div>
-        <div id="guestCountSummary" style={guestStlyeB}>
-          {count}
-          {' '}
-          {count === '1' ? 'Person' : 'People'}
-        </div>
-        <div style={editStyle}>
-          <div id="edit" role="button" tabIndex={0} onClick={back} onKeyPress={back}>
-              EDIT
-          </div>
-        </div>
-      </div>
+        </SummaryGrid>
+        <Edit id="editSummary" role="button" tabIndex={0} onClick={back} onKeyPress={back}>
+          EDIT
+        </Edit>
+      </Summary>
       {isValid
         ? (
-          <button type="submit" onClick={book} style={findTableButton}>
+          <Button id="submitValid" type="submit" onClick={book}>
             Book Appointment
-          </button>
+          </Button>
         )
         : (
-          <button type="submit" onClick={notValid} style={findTableButton}>
+          <Button id="submitInvalid" type="submit" onClick={notValid}>
             Not complete
-          </button>
+          </Button>
         )
       }
     </form>
