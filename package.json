@@ -8,7 +8,8 @@
     "dev": "webpack -d --watch",
     "build": "webpack --config webpack.prod.js",
     "start": "nodemon server/server.js",
-    "makeDB": "mysql -u root < database/schema.sql",
+    "mysql": "mysql.server start",
+    "makeDB": "mysql -u root < db/schema.sql",
     "loadData": "node db/loadFake.js",
     "testing": "jest --watch *.jsx --coverage"
   },
