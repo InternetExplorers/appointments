@@ -10,10 +10,6 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, '../public')));
 
-app.use((req, res, next) => {
-  console.log(req.body, req.path);
-  next();
-});
 
 app.get('/business/:id/appointments', (req, res) => {
   helper.getBusinessInfo({ id: req.params.id }, (err, success) => {
