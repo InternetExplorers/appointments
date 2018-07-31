@@ -1,3 +1,5 @@
 node_modules/
 .DS_Store
 coverage
+public/dist/bundle.js.map
+public/dist/bundle.js

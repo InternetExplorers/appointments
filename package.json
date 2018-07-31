@@ -5,9 +5,11 @@
   "main": "server.js",
   "scripts": {
     "test": "jest",
+    "dev": "webpack -d --watch",
+    "build": "webpack --config webpack.prod.js",
     "start": "nodemon server/server.js",
-    "react": "webpack -d --watch",
-    "makeDB": "mysql -u root < database/schema.sql",
+    "mysql": "mysql.server start",
+    "makeDB": "mysql -u root < db/schema.sql",
     "loadData": "node db/loadFake.js",
     "testing": "jest --watch *.jsx --coverage"
   },
@@ -36,6 +38,7 @@
     "eslint-plugin-import": "^2.13.0",
     "eslint-plugin-jsx-a11y": "^6.1.1",
     "eslint-plugin-react": "^7.10.0",
+    "html-webpack-plugin": "^3.2.0",
     "jest": "^23.4.1",
     "react-test-renderer": "^16.4.1",
     "request": "^2.87.0",
@@ -53,6 +56,7 @@
     "prop-types": "^15.6.2",
     "react": "^16.4.1",
     "react-dom": "^16.4.1",
-    "styled-components": "^3.3.3"
+    "styled-components": "^3.3.3",
+    "webpack-merge": "^4.1.3"
   }
 }
