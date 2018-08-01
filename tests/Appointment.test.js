@@ -25,7 +25,6 @@ describe('Appointment, parent component', () => {
   });
 
   it('should render the correct keys for state', () => {
-    expect(wrapper.state().businessId).toBeGreaterThan(-1);
     expect(wrapper.state().businessName).toBe('');
     expect(wrapper.state().businessMax).toBe(0);
     expect(wrapper.state().businessAddress).toBe('');
