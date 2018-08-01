@@ -14,7 +14,7 @@ app.use((req, res, next) => {
 });
 
 app.use(bodyParser.urlencoded({ extended: true }));
-app.use(express.static(path.join(__dirname, '../public')));
+app.use('/:businessId/', express.static(path.join(__dirname, '../public')));
 
 
 app.get('/business/:id/appointments', (req, res) => {
