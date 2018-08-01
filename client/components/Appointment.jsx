@@ -1,11 +1,12 @@
 import React from 'react';
 import $ from 'jquery';
 import moment from 'moment';
+import PropTypes from 'prop-types';
 import LevelOne from './LevelOne.jsx';
 import LevelTwo from './LevelTwo.jsx';
 
 const outerShell = {
-  width: '300px',
+  width: '250px',
   padding: '20px',
   border: '1px solid lightGrey',
   borderRadius: '5px',
@@ -19,8 +20,10 @@ class Appointment extends React.Component {
     this.back = this.back.bind(this);
     this.handleChange = this.handleChange.bind(this);
     this.makeAppointment = this.makeAppointment.bind(this);
+
+    const { id } = this.props;
     this.state = {
-      businessId: (Math.floor(Math.random() * 99) + 1),
+      businessId: id,
       businessName: '',
       businessMax: 0,
       businessAddress: '',
@@ -184,5 +187,9 @@ class Appointment extends React.Component {
     );
   }
 }
+
+Appointment.propTypes = {
+  id: PropTypes.number.isRequired,
+};
 
 export default Appointment;

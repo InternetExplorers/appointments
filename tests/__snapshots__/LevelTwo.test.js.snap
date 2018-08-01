@@ -3,54 +3,54 @@
 exports[`LevelTwo, a child component to Appointment should render 4 input fields with correct titles 1`] = `
 <form>
   <div>
-    <styled.h1>
+    <LevelTwo__Title>
       Confirm Reservation
-    </styled.h1>
-    <styled.div>
+    </LevelTwo__Title>
+    <LevelTwo__FormCategory>
       First Name*
-      <styled.input
+      <LevelTwo__InputStyle
         id="inputFirstName"
         name="firstName"
         value="firstName"
       />
-    </styled.div>
-    <styled.div>
+    </LevelTwo__FormCategory>
+    <LevelTwo__FormCategory>
       Last Name*
-      <styled.input
+      <LevelTwo__InputStyle
         id="inputLastName"
         name="lastName"
         value="lastName"
       />
-    </styled.div>
-    <styled.div>
+    </LevelTwo__FormCategory>
+    <LevelTwo__FormCategory>
       Email*
-      <styled.input
+      <LevelTwo__InputStyle
         id="inputEmail"
         name="email"
         value="email"
       />
-    </styled.div>
-    <styled.div>
+    </LevelTwo__FormCategory>
+    <LevelTwo__FormCategory>
       Mobile Number*
-      <styled.input
+      <LevelTwo__InputStyle
         id="inputPhone"
         name="phone"
         value="phone"
       />
-    </styled.div>
-    <styled.div>
+    </LevelTwo__FormCategory>
+    <LevelTwo__FormCategory>
       *required field
-    </styled.div>
+    </LevelTwo__FormCategory>
   </div>
-  <styled.div>
-    <styled.div
+  <LevelTwo__Summary>
+    <LevelTwo__SummaryGrid
       column="1 / 5"
       id="whenSummaryKey"
       row="1"
     >
       When:
-    </styled.div>
-    <styled.div
+    </LevelTwo__SummaryGrid>
+    <LevelTwo__SummaryGrid
       column="2 / 5"
       id="whenSummaryPropert"
       row="1"
@@ -58,15 +58,15 @@ exports[`LevelTwo, a child component to Appointment should render 4 input fields
       July 26, 2018
        at 
       10:30 AM
-    </styled.div>
-    <styled.div
+    </LevelTwo__SummaryGrid>
+    <LevelTwo__SummaryGrid
       column="1 / 5"
       id="guestCountSummaryKey"
       row="2"
     >
       Party:
-    </styled.div>
-    <styled.div
+    </LevelTwo__SummaryGrid>
+    <LevelTwo__SummaryGrid
       column="2"
       id="guestCountSummaryProperty"
       row="2"
@@ -78,15 +78,15 @@ exports[`LevelTwo, a child component to Appointment should render 4 input fields
          
         Person
       </div>
-    </styled.div>
-    <styled.div
+    </LevelTwo__SummaryGrid>
+    <LevelTwo__SummaryGrid
       column="1 / 5"
       id="placeSummaryKey"
       row="3"
     >
       Place:
-    </styled.div>
-    <styled.div
+    </LevelTwo__SummaryGrid>
+    <LevelTwo__SummaryGrid
       column="2 / 5"
       id="placeSummaryProperty"
       row="3 / 5"
@@ -96,20 +96,20 @@ exports[`LevelTwo, a child component to Appointment should render 4 input fields
       123
       <br />
       businessCity businessState, businessZip
-    </styled.div>
-    <styled.div
+    </LevelTwo__SummaryGrid>
+    <LevelTwo__Edit
       id="editSummary"
       role="button"
       tabIndex={0}
     >
       EDIT
-    </styled.div>
-  </styled.div>
-  <styled.button
+    </LevelTwo__Edit>
+  </LevelTwo__Summary>
+  <LevelTwo__Button
     id="submitValid"
     type="submit"
   >
     Book Appointment
-  </styled.button>
+  </LevelTwo__Button>
 </form>
 `;
