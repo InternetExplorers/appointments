@@ -5,7 +5,7 @@ import LevelOne from './LevelOne.jsx';
 import LevelTwo from './LevelTwo.jsx';
 
 const outerShell = {
-  width: '300px',
+  width: '250px',
   padding: '20px',
   border: '1px solid lightGrey',
   borderRadius: '5px',
