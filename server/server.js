@@ -38,7 +38,7 @@ app.post('/business/:id/make_appointment', (req, res) => {
         if (error) {
           res.status(400).send();
         } else {
-          res.status(200).send(success);
+          res.status(201).send(success);
         }
       });
     } else {
@@ -51,7 +51,7 @@ app.post('/business/:id/make_appointment', (req, res) => {
             if (error) {
               res.status(400).send();
             } else {
-              res.status(200).send(success);
+              res.status(201).send(success);
             }
           });
         }
@@ -69,7 +69,15 @@ app.get('/business/:business_id/get_appointment/:appointment_id', (req, res) => 
 });
 
 // UPDATE
+
+
 // DELETE
+app.delete('/business/:business_id/remove_appointment/:appointment_id', (req, res) => {
+  helper.removeAppointment(req.params, (err) => {
+    if (err) res.status(400).send();
+    else res.status(204).send();
+  });
+});
 
 app.listen(PORT, () => console.log(`Nice Jordan, app listening on port ${PORT}!`));
 
