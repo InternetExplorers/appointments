@@ -38,7 +38,7 @@ app.post('/business/:id/make_appointment', (req, res) => {
         if (error) {
           res.status(400).send();
         } else {
-          res.status(200).send(success);
+          res.status(201).send(success);
         }
       });
     } else {
@@ -51,7 +51,7 @@ app.post('/business/:id/make_appointment', (req, res) => {
             if (error) {
               res.status(400).send();
             } else {
-              res.status(200).send(success);
+              res.status(201).send(success);
             }
           });
         }
