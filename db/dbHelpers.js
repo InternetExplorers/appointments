@@ -41,6 +41,14 @@ const addAppointment = (data, callback) => {
   });
 };
 
+const removeAppointment = (data, callback) => {
+  const queryString = `DELETE FROM appointments_log WHERE id=${data.appointment_id} AND business_id=${data.business_id}`;
+  db.query(queryString, (err, results) => {
+    if (err) callback(err);
+    else callback(null, results);
+  });
+};
+
 const getBusinessInfo = (data, callback) => {
   const queryString = 'SELECT * FROM businesses WHERE id = ?';
   db.query(queryString, [data.id], (err, success) => {
@@ -79,6 +87,7 @@ module.exports = {
   addUser,
   getAppointment,
   addAppointment,
+  removeAppointment,
   getBusinessInfo,
   userCount,
   appointmentCount,
