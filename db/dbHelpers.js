@@ -22,6 +22,14 @@ const addUser = (data, callback) => {
   });
 };
 
+const getAppointment = (data, callback) => {
+  const queryString = `SELECT * FROM appointments_log WHERE id=${data.appointment_id} AND business_id=${data.business_id}`;
+  db.query(queryString, (err, results) => {
+    if (err) callback(err);
+    else callback(null, results);
+  });
+};
+
 const addAppointment = (data, callback) => {
   const queryString = 'INSERT INTO appointments_log (business_id, customer_id, start_time, date_string, guest_count) VALUES(?, ?, ?, ?, ?)';
   db.query(queryString, [data.businessId, data.customerId, data.time, data.date, data.count], (err, success) => {
@@ -69,6 +77,7 @@ const appointmentCount = (callback) => {
 module.exports = {
   checkUser,
   addUser,
+  getAppointment,
   addAppointment,
   getBusinessInfo,
   userCount,

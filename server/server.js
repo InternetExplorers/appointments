@@ -27,6 +27,7 @@ app.get('/business/:id/appointments', (req, res) => {
   });
 });
 
+// CREATE
 app.post('/business/:id/make_appointment', (req, res) => {
   helper.checkUser(req.body.userDetails.email, (err, succ) => {
     if (err) {
@@ -58,6 +59,17 @@ app.post('/business/:id/make_appointment', (req, res) => {
     }
   });
 });
+
+// READ
+app.get('/business/:business_id/get_appointment/:appointment_id', (req, res) => {
+  helper.getAppointment(req.params, (err, data) => {
+    if (err) res.status(400).send();
+    else res.status(200).send(data);
+  });
+});
+
+// UPDATE
+// DELETE
 
 app.listen(PORT, () => console.log(`Nice Jordan, app listening on port ${PORT}!`));
 
