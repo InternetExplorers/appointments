@@ -31,8 +31,7 @@ const getAppointment = (data, callback) => {
 };
 
 const updateAppointment = (data, callback) => {
-  console.log(data.body);
-  const queryString = `UPDATE appointments_log SET business_id=${data.body.businessId}, customer_id=${data.body.customerId}, start_time=${data.body.time}, date_string=${data.body.date}, guest_count=${data.body.count} WHERE id=${data.params.appointment_id} AND business_id=${data.params.business_id}`;
+  const queryString = `UPDATE appointments_log SET start_time=${data.body.time}, date_string=${data.body.date}, guest_count=${data.body.count} WHERE appointments_log.id=${data.params.appointment_id}`;
   db.query(queryString, (err, results) => {
     if (err) callback(err);
     else callback(null, results);
