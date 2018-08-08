@@ -30,6 +30,15 @@ const getAppointment = (data, callback) => {
   });
 };
 
+const updateAppointment = (data, callback) => {
+  console.log(data.body);
+  const queryString = `UPDATE appointments_log SET business_id=${data.body.businessId}, customer_id=${data.body.customerId}, start_time=${data.body.time}, date_string=${data.body.date}, guest_count=${data.body.count} WHERE id=${data.params.appointment_id} AND business_id=${data.params.business_id}`;
+  db.query(queryString, (err, results) => {
+    if (err) callback(err);
+    else callback(null, results);
+  });
+};
+
 const addAppointment = (data, callback) => {
   const queryString = 'INSERT INTO appointments_log (business_id, customer_id, start_time, date_string, guest_count) VALUES(?, ?, ?, ?, ?)';
   db.query(queryString, [data.businessId, data.customerId, data.time, data.date, data.count], (err, success) => {
@@ -79,6 +88,7 @@ module.exports = {
   addUser,
   getAppointment,
   addAppointment,
+  updateAppointment,
   getBusinessInfo,
   userCount,
   appointmentCount,

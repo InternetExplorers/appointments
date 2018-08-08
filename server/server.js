@@ -69,6 +69,13 @@ app.get('/business/:business_id/get_appointment/:appointment_id', (req, res) => 
 });
 
 // UPDATE
+app.put('/business/:business_id/update_appointment/:appointment_id', (req, res) => {
+  helper.getAppointment(req, (err, data) => {
+    if (err) res.status(400).send();
+    else res.status(204).send(data);
+  });
+});
+
 // DELETE
 
 app.listen(PORT, () => console.log(`Nice Jordan, app listening on port ${PORT}!`));
