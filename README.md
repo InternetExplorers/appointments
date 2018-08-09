@@ -5,10 +5,13 @@ time, business, and the party size for your appointment and stores in a mysql
 table. It also registers users in a separate table.
 
 ## CRUD Usage
-POST /business/:business_id/appointments
-GET /business/:business_id/appointments/:appointment_id
-PUT /business/:business_id/appointments/:appointment_id
-DELETE /business/:business_id/appointments/:appointment_id
+>POST: `/business/:business_id/appointments`
+
+>GET: `/business/:business_id/appointments/:appointment_id`
+
+>PUT: `/business/:business_id/appointments/:appointment_id`
+
+>DELETE: `/business/:business_id/appointments/:appointment_id`
 
 ### Starting DB and Loading Fake Data
 
