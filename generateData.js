@@ -11,6 +11,7 @@ const adj = [
   'Ergonomic',
   'Refined',
   'Licensed',
+  'Scrumptious',
 ];
 
 const append = (data) => {
@@ -20,8 +21,8 @@ const append = (data) => {
     chunks.push(data.slice(prevIdx, j).join('\n'));
     prevIdx = j;
   }
-  for (let i = 0; i < 100; i += 1) {
-    fs.appendFileSync(`data${i === 0 ? '' : i}.csv`, chunks[i]);
+  for (let i = 1; i <= 100; i += 1) {
+    fs.appendFileSync(`data${i}.csv`, chunks[i]);
   }
 };
 
@@ -29,7 +30,7 @@ const makeUniqueBusinesses = (rounds) => {
   const storage = [];
   const makeCombos = (counter, combo = []) => {
     if (!counter) {
-      storage.push(combo);
+      storage.push([combo.join(' ')]);
     } else {
       for (let i = 0; i < adj.length; i += 1) {
         const element = adj[i];
