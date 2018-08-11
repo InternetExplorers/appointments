@@ -27,21 +27,8 @@ const randomPhoneNumber = () => {
   return number;
 };
 
-const append = (data) => {
-  const chunks = [];
-  let prevIdx = 0;
-  for (let j = 0; j <= data.length; j += 1000000) {
-    chunks.push(data.slice(prevIdx, j).join('\n'));
-    prevIdx = j;
-  }
-  for (let i = 1; i <= 10; i += 1) {
-    const headers = 'id,name,address,city,state,zip,phone,opens,closes,guest_max\n';
-    fs.appendFileSync(`businesses${i}.csv`, headers + chunks[i]);
-  }
-};
-
 const makeUniqueBusinesses = (rounds) => {
-  const storage = [];
+  let storage = [];
   let id = 1;
   const makeCombos = (counter, combo = []) => {
     if (!counter) {
@@ -53,9 +40,12 @@ const makeUniqueBusinesses = (rounds) => {
         makeCombos(counter - 1, combo.concat(element));
       }
     }
+    if ((id - 1) % 1000000 === 0) {
+      fs.appendFileSync(`data/businesses/businesses${Math.round(id / 1000000)}.csv`, storage.join('\n'));
+      storage = [];
+    }
   };
   makeCombos(rounds);
-  append(storage);
 };
 
 makeUniqueBusinesses(7);

@@ -12,25 +12,17 @@ const generateDay = () => {
   return day >= 10 ? day : `0${day}`;
 };
 
-const append = (appointments) => {
-  const appointmentGroups = [];
-  let prevIdx = 0;
-  for (let j = 0; j <= appointments.length; j += 2000000) {
-    appointmentGroups.push(appointments.slice(prevIdx, j).join('\n'));
-    prevIdx = j;
-  }
-  for (let i = 1; i <= 10; i += 1) {
-    const headers = 'id,business_id,customer_id,start_time,date_string,guest_count\n';
-    fs.appendFileSync(`data/appointments/appointments${i}.csv`, headers + appointmentGroups[i]);
-  }
-};
-
 const makeAppointments = () => {
-  const appointments = [];
-  for (let i = 1; i <= 20000000; i += 1) {
+  let appointments = [];
+  let id = 1;
+  for (let i = 1; i <= 50000000; i += 1) {
     appointments.push([i, randomNumber(1, 10000000), randomNumber(1, 20000000), `${randomNumber(11, 21)}:00:00`, `2018-${generateMonth()}-${generateDay()} 00:00:00`, randomNumber(1, 10)]);
+    if (i % 5000000 === 0) {
+      fs.appendFileSync(`data/appointments/appointments${id}.csv`, appointments.join('\n'));
+      appointments = [];
+      id += 1;
+    }
   }
-  append(appointments);
 };
 
 makeAppointments();
