@@ -14,26 +14,18 @@ const randomPhoneNumber = () => {
   return number;
 };
 
-const append = (users) => {
-  const userGroups = [];
-  let prevIdx = 0;
-  for (let j = 0; j <= users.length; j += 2000000) {
-    userGroups.push(users.slice(prevIdx, j).join('\n'));
-    prevIdx = j;
-  }
-  for (let i = 1; i <= 10; i += 1) {
-    const headers = 'id,first_name,last_name,phone,email\n';
-    fs.appendFileSync(`data/users/users${i}.csv`, headers + userGroups[i]);
-  }
-};
-
 const makeUsers = () => {
-  const users = [];
+  let users = [];
+  let id = 1;
   for (let i = 1; i <= 20000000; i += 1) {
-    users.push([i, faker.name.firstName(), faker.name.lastName(),
-      randomPhoneNumber(), faker.internet.email()]);
+    users.push([i, faker.name.firstName(), faker.name.lastName(), randomPhoneNumber(),
+      faker.internet.email()]);
+    if (i % 2000000 === 0) {
+      fs.appendFileSync(`data/users/users${id}.csv`, users.join('\n'));
+      users = [];
+      id += 1;
+    }
   }
-  append(users);
 };
 
 makeUsers();
