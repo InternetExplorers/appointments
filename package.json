@@ -11,6 +11,8 @@
     "mysql": "mysql.server start",
     "makeDB": "mysql -u root < db/schema.sql",
     "makePostgres": "\"/Applications/Postgres.app/Contents/Versions/10/bin/psql\" -p5432 -dappointments < db/schema.sql",
+    "makeMongo": "node generateMongo.js",
+    "seedMongo": "mongoimport --db appointments --collection businesses --drop --file json/mongo1.json --jsonArray; mongoimport --db appointments --collection businesses --file json/mongo2.json --jsonArray; mongoimport --db appointments --collection businesses --file json/mongo3.json --jsonArray; mongoimport --db appointments --collection businesses --file json/mongo4.json --jsonArray; mongoimport --db appointments --collection businesses --file json/mongo5.json --jsonArray; mongoimport --db appointments --collection businesses --file json/mongo6.json --jsonArray; mongoimport --db appointments --collection businesses --file json/mongo7.json --jsonArray; mongoimport --db appointments --collection businesses --file json/mongo8.json --jsonArray; mongoimport --db appointments --collection businesses --file json/mongo9.json --jsonArray; mongoimport --db appointments --collection businesses --file json/mongo10.json --jsonArray;",
     "loadData": "node db/loadFake.js",
     "testing": "jest --watch *.jsx --coverage"
   },
@@ -55,6 +57,7 @@
     "faker": "^4.1.0",
     "jquery": "^3.3.1",
     "moment": "^2.22.2",
+    "mongodb": "^3.1.1",
     "mysql": "^2.16.0",
     "prop-types": "^15.6.2",
     "react": "^16.4.1",
