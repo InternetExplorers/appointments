@@ -32,8 +32,6 @@ CREATE TABLE appointments_log (
   date_string VARCHAR(20),
   guest_count INT,
   PRIMARY KEY(id)
-  -- FOREIGN KEY(business_id) REFERENCES businesses(id),
-  -- FOREIGN KEY(customer_id) REFERENCES users(id)
 );
 
 COPY businesses FROM '/Users/zcoursey22/Documents/Hack Reactor/SDC/appointments/data/businesses/businesses1.csv' DELIMITER ',';
@@ -66,3 +64,6 @@ COPY appointments_log FROM '/Users/zcoursey22/Documents/Hack Reactor/SDC/appoint
 COPY appointments_log FROM '/Users/zcoursey22/Documents/Hack Reactor/SDC/appointments/data/appointments/appointments8.csv' DELIMITER ',';
 COPY appointments_log FROM '/Users/zcoursey22/Documents/Hack Reactor/SDC/appointments/data/appointments/appointments9.csv' DELIMITER ',';
 COPY appointments_log FROM '/Users/zcoursey22/Documents/Hack Reactor/SDC/appointments/data/appointments/appointments10.csv' DELIMITER ',';
+
+ALTER TABLE appointments_log ADD FOREIGN KEY (business_id) REFERENCES businesses(id);
+ALTER TABLE appointments_log ADD FOREIGN KEY (customer_id) REFERENCES users(id);
