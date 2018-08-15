@@ -32,7 +32,7 @@ const makeUniqueBusinesses = (rounds) => {
   let id = 1;
   const makeCombos = (counter, combo = []) => {
     if (!counter) {
-      storage.push([id, combo.join(' '), faker.address.streetAddress(), faker.address.city(), faker.address.stateAbbr(), faker.address.zipCode(), randomPhoneNumber(), `${randomNumber(7, 12)}:00:00`, `${randomNumber(19, 24)}:00:00`, randomNumber(3, 10)]);
+      storage.push([combo.join(' '), faker.address.streetAddress(), faker.address.city(), faker.address.stateAbbr(), faker.address.zipCode(), randomPhoneNumber(), `${randomNumber(7, 12)}:00:00`, `${randomNumber(19, 24)}:00:00`, randomNumber(3, 10)]);
       id += 1;
     } else {
       for (let i = 0; i < adj.length; i += 1) {
