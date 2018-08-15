@@ -16,7 +16,7 @@ const makeAppointments = () => {
   let appointments = [];
   let id = 1;
   for (let i = 1; i <= 50000000; i += 1) {
-    appointments.push([i, randomNumber(1, 10000000), randomNumber(1, 20000000), `${randomNumber(11, 21)}:00:00`, `2018-${generateMonth()}-${generateDay()} 00:00:00`, randomNumber(1, 10)]);
+    appointments.push([randomNumber(1, 10000000), randomNumber(1, 20000000), `${randomNumber(11, 21)}:00:00`, `2018-${generateMonth()}-${generateDay()} 00:00:00`, randomNumber(1, 10)]);
     if (i % 5000000 === 0) {
       fs.appendFileSync(`data/appointments/appointments${id}.csv`, appointments.join('\n'));
       appointments = [];
