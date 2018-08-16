@@ -1,10 +1,11 @@
-const mysql = require('mysql');
+const { Client } = require('pg');
 
-const connection = mysql.createConnection({
+const client = new Client({
   host: 'localhost',
-  user: 'root',
-  password: '',
   database: 'appointments',
+  port: 5432,
 });
 
-module.exports = connection;
+client.connect();
+
+module.exports = client;
