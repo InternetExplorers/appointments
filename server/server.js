@@ -1,3 +1,4 @@
+require('newrelic');
 const express = require('express');
 const path = require('path');
 const bodyParser = require('body-parser');
@@ -29,7 +30,7 @@ app.get('/business/:id/appointments', (req, res) => {
 
 // CREATE
 app.post('/business/:id/make_appointment', (req, res) => {
-  helper.checkUser(req.body.userDetails.email, (err, succ) => {
+  helper.checkUser(req.body, (err, succ) => {
     if (err) {
       res.status(500).send();
     } else if (succ[0]) {
@@ -46,7 +47,7 @@ app.post('/business/:id/make_appointment', (req, res) => {
         if (failed) {
           res.status(400).send();
         } else {
-          req.body.appointmentDetails.customerId = `${succeeded.insertId}`;
+          req.body.appointmentDetails.customerId = succeeded.insertId;
           helper.addAppointment(req.body.appointmentDetails, (error, success) => {
             if (error) {
               res.status(400).send();
