@@ -6,3 +6,4 @@ bundle.js
 npm-debug.log
 *.csv
 json/*
+newrelic_agent.log
