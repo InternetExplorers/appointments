@@ -1,8 +1,8 @@
 const db = require('./index');
 
-const checkUser = (data, callback) => {
-  const queryString = 'SELECT * FROM users WHERE email = ?';
-  db.query(queryString, [data], (err, success) => {
+const checkUser = (body, callback) => {
+  const queryString = `SELECT * FROM users WHERE id = '${body.appointmentDetails.customerId}'`;
+  db.query(queryString, (err, success) => {
     if (err) {
       callback(err);
     } else {
@@ -12,8 +12,8 @@ const checkUser = (data, callback) => {
 };
 
 const addUser = (data, callback) => {
-  const queryString = 'INSERT INTO users (first_name, last_name, phone, email ) VALUES(?, ?, ? , ?)';
-  db.query(queryString, [data.firstName, data.lastName, data.phone, data.email], (err, success) => {
+  const queryString = `INSERT INTO users (first_name, last_name, phone, email ) VALUES('${data.first_name}', '${data.last_name}', '${data.phone}', '${data.email}')`;
+  db.query(queryString, (err, success) => {
     if (err) {
       callback(err);
     } else {
@@ -39,7 +39,7 @@ const updateAppointment = (data, callback) => {
 };
 
 const addAppointment = (data, callback) => {
-  const queryString = 'INSERT INTO appointments_log (business_id, customer_id, start_time, date_string, guest_count) VALUES(?, ?, ?, ?, ?)';
+  const queryString = 'INSERT INTO appointments_log (business_id, customer_id, start_time, date_string, guest_count) VALUES($1, $2, $3, $4, $5)';
   db.query(queryString, [data.businessId, data.customerId, data.time, data.date, data.count], (err, success) => {
     if (err) {
       callback(err);
