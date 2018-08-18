@@ -1,0 +1,65 @@
+config:
+  target: 'http://localhost:3003'
+  payload:
+      path: "./payload.csv"
+      fields:
+        - "businessId"
+        - "appointmentId"
+  phases:
+    - duration: 10
+      arrivalRate: 1
+      rampTo: 10
+      name: "Warm up the application pt 1"
+    - duration: 25
+      arrivalRate: 10
+      rampTo: 100
+      name: "Warm up the application pt 2"
+    - duration: 50
+      arrivalRate: 100
+      rampTo: 1000
+      name: "Warm up the application pt 3"
+    - duration: 100
+      arrivalRate: 1000
+      name: "Sustained max load"
+  defaults:
+    headers:
+      x-my-service-auth: '987401838271002188298567'
+scenarios:
+  - name: "GET"
+    weight: 21
+    flow:
+    - get:
+        url: "/business/{{ businessId }}/get_appointment/{{ appointmentId }}"
+  - name: "POST"
+    weight: 2
+    flow:
+    - post:
+        url: "/business/{{ businessId }}/make_appointment"
+        json:
+          userDetails:
+            first_name: "Zach"
+            last_name: "Coursey"
+            phone: "(352)235-7133"
+            email: "zachcoursey@email.com"
+          appointmentDetails:
+            businessId: 9839794
+            customerId: 943266
+            date: "23532"
+            time: "42553"
+            count: 13
+  - name: "UPDATE"
+    weight: 1
+    flow:
+    - put:
+        url: "/business/{{ businessId }}/update_appointment/{{ appointmentId }}"
+        json:
+          businessId: 9954257
+          customerId: 9952324
+          date: "55254"
+          time: "53243"
+          count: 9
+  - name: "DELETE"
+    weight: 1
+    flow:
+    - delete:
+        url: "/business/{{ businessId }}/remove_appointment/{{ appointmentId }}"
