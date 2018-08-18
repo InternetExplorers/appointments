@@ -52,6 +52,7 @@
     "webpack-cli": "^3.1.0"
   },
   "dependencies": {
+    "artillery": "^1.6.0-22",
     "body-parser": "^1.18.3",
     "express": "^4.16.3",
     "faker": "^4.1.0",
