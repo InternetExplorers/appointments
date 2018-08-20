@@ -40,13 +40,14 @@ const updateAppointment = (data, callback) => {
 
 const addAppointment = (data, callback) => {
   const queryString = 'INSERT INTO appointments_log (business_id, customer_id, start_time, date_string, guest_count) VALUES($1, $2, $3, $4, $5)';
-  db.query(queryString, [data.businessId, data.customerId, data.time, data.date, data.count], (err, success) => {
-    if (err) {
-      callback(err);
-    } else {
-      callback(null, success);
-    }
-  });
+  db.query(queryString, [data.businessId, data.customerId, data.time, data.date, data.count],
+    (err, success) => {
+      if (err) {
+        callback(err);
+      } else {
+        callback(null, success);
+      }
+    });
 };
 
 const removeAppointment = (data, callback) => {
