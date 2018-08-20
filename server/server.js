@@ -11,7 +11,10 @@ const app = express();
 app.use(bodyParser.json());
 app.use((req, res, next) => {
   res.header('Access-Control-Allow-Origin', '*');
-  res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
+  res.header(
+    'Access-Control-Allow-Headers',
+    'Origin, X-Requested-With, Content-Type, Accept',
+  );
   next();
 });
 
@@ -50,13 +53,16 @@ app.post('/business/:id/make_appointment', (req, res) => {
           res.status(400).send();
         } else {
           req.body.appointmentDetails.customerId = succeeded.insertId;
-          helper.addAppointment(req.body.appointmentDetails, (error, success) => {
-            if (error) {
-              res.status(400).send();
-            } else {
-              res.status(201).send(success);
-            }
-          });
+          helper.addAppointment(
+            req.body.appointmentDetails,
+            (error, success) => {
+              if (error) {
+                res.status(400).send();
+              } else {
+                res.status(201).send(success);
+              }
+            },
+          );
         }
       });
     }
@@ -64,43 +70,52 @@ app.post('/business/:id/make_appointment', (req, res) => {
 });
 
 // READ
-app.get('/business/:business_id/get_appointment/:appointment_id', (req, res) => {
-  // client.mget([req.params.business_id, req.params.appointment_id],
-  //   (result) => {
-  //     if (result) {
-  //       console.log(result);
-  //       res.status(200).json(result);
-  //     } else {
-  helper.getAppointment(req.params, (err, data) => {
-    if (err) res.status(400).send();
-    else {
-      // client.mset(
-      //   [req.params.business_id, req.params.appointment_id],
-      //   4000,
-      //   JSON.stringify(data),
-      // );
-      res.status(200).json(data);
-    }
-  });
-// }
-// });
-});
+app.get(
+  '/business/:business_id/get_appointment/:appointment_id',
+  (req, res) => {
+    // client.mget([req.params.business_id, req.params.appointment_id],
+    //   (result) => {
+    //     if (result) {
+    //       console.log(result);
+    //       res.status(200).json(result);
+    //     } else {
+    helper.getAppointment(req.params, (err, data) => {
+      if (err) res.status(400).send();
+      else {
+        // client.mset(
+        //   [req.params.business_id, req.params.appointment_id],
+        //   4000,
+        //   JSON.stringify(data),
+        // );
+        res.status(200).json(data);
+      }
+    });
+    // }
+    // });
+  },
+);
 
 // UPDATE
-app.put('/business/:business_id/update_appointment/:appointment_id', (req, res) => {
-  helper.updateAppointment(req, (err) => {
-    if (err) res.status(400).send();
-    else res.status(204).send();
-  });
-});
+app.put(
+  '/business/:business_id/update_appointment/:appointment_id',
+  (req, res) => {
+    helper.updateAppointment(req.params, (err) => {
+      if (err) res.status(400).send();
+      else res.status(204).send();
+    });
+  },
+);
 
 // DELETE
-app.delete('/business/:business_id/remove_appointment/:appointment_id', (req, res) => {
-  helper.removeAppointment(req.params, (err) => {
-    if (err) res.status(400).send();
-    else res.status(204).send();
-  });
-});
+app.delete(
+  '/business/:business_id/remove_appointment/:appointment_id',
+  (req, res) => {
+    helper.removeAppointment(req.params, (err) => {
+      if (err) res.status(400).send();
+      else res.status(204).send();
+    });
+  },
+);
 
 app.listen(PORT, () => console.log(`Nice Jordan, app listening on port ${PORT}!`));
 
