@@ -7,7 +7,7 @@
     "test": "jest",
     "dev": "webpack -d --watch",
     "build": "webpack --config webpack.prod.js",
-    "start": "nodemon server/server.js",
+    "start": "NODE_ENV=production nodemon server/server.js",
     "mysql": "mysql.server start",
     "makeDB": "mysql -u root < db/schema.sql",
     "makePostgres": "\"/Applications/Postgres.app/Contents/Versions/10/bin/psql\" -p5432 -dappointments < db/schema.sql",
@@ -65,6 +65,7 @@
     "prop-types": "^15.6.2",
     "react": "^16.4.1",
     "react-dom": "^16.4.1",
+    "redis": "^2.8.0",
     "webpack-merge": "^4.1.3"
   }
 }

@@ -1,4 +1,5 @@
 require('newrelic');
+const redis = require('redis');
 const express = require('express');
 const path = require('path');
 const bodyParser = require('body-parser');
@@ -17,6 +18,7 @@ app.use((req, res, next) => {
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use('/:businessId/', express.static(path.join(__dirname, '../public')));
 
+const client = redis.createClient();
 
 app.get('/business/:id/appointments', (req, res) => {
   helper.getBusinessInfo({ id: req.params.id }, (err, success) => {
@@ -63,10 +65,25 @@ app.post('/business/:id/make_appointment', (req, res) => {
 
 // READ
 app.get('/business/:business_id/get_appointment/:appointment_id', (req, res) => {
+  // client.mget([req.params.business_id, req.params.appointment_id],
+  //   (result) => {
+  //     if (result) {
+  //       console.log(result);
+  //       res.status(200).json(result);
+  //     } else {
   helper.getAppointment(req.params, (err, data) => {
     if (err) res.status(400).send();
-    else res.status(200).send(data);
+    else {
+      // client.mset(
+      //   [req.params.business_id, req.params.appointment_id],
+      //   4000,
+      //   JSON.stringify(data),
+      // );
+      res.status(200).json(data);
+    }
   });
+// }
+// });
 });
 
 // UPDATE
