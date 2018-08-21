@@ -21,7 +21,7 @@ app.use((req, res, next) => {
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use('/:businessId/', express.static(path.join(__dirname, '../public')));
 
-const client = redis.createClient();
+// const client = redis.createClient();
 
 app.get('/business/:id/appointments', (req, res) => {
   helper.getBusinessInfo({ id: req.params.id }, (err, success) => {

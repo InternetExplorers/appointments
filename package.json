@@ -7,7 +7,7 @@
     "test": "jest",
     "dev": "webpack -d --watch",
     "build": "webpack --config webpack.prod.js",
-    "start": "NODE_ENV=production nodemon server/server.js",
+    "start": "NODE_ENV=production node server/server.js",
     "mysql": "mysql.server start",
     "makeDB": "mysql -u root < db/schema.sql",
     "makePostgres": "\"/Applications/Postgres.app/Contents/Versions/10/bin/psql\" -p5432 -dappointments < db/schema.sql",
